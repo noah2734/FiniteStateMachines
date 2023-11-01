@@ -11,9 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -24,6 +27,12 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
+    QFrame *frame;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QRadioButton *DFARadio;
+    QRadioButton *NFARadio;
+    QRadioButton *PDARadio;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -114,7 +123,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(60, 190, 661, 351));
+        graphicsView->setGeometry(QRect(70, 190, 661, 351));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         QBrush brush11(QColor(190, 193, 204, 255));
@@ -184,6 +193,32 @@ public:
 #endif
         graphicsView->setPalette(palette1);
         graphicsView->setStyleSheet(QString::fromUtf8(""));
+        frame = new QFrame(centralwidget);
+        frame->setObjectName("frame");
+        frame->setGeometry(QRect(120, 40, 521, 80));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        horizontalLayoutWidget = new QWidget(frame);
+        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
+        horizontalLayoutWidget->setGeometry(QRect(79, 0, 381, 80));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        DFARadio = new QRadioButton(horizontalLayoutWidget);
+        DFARadio->setObjectName("DFARadio");
+
+        horizontalLayout->addWidget(DFARadio);
+
+        NFARadio = new QRadioButton(horizontalLayoutWidget);
+        NFARadio->setObjectName("NFARadio");
+
+        horizontalLayout->addWidget(NFARadio);
+
+        PDARadio = new QRadioButton(horizontalLayoutWidget);
+        PDARadio->setObjectName("PDARadio");
+
+        horizontalLayout->addWidget(PDARadio);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -201,6 +236,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        DFARadio->setText(QCoreApplication::translate("MainWindow", "DFA", nullptr));
+        NFARadio->setText(QCoreApplication::translate("MainWindow", "NFA", nullptr));
+        PDARadio->setText(QCoreApplication::translate("MainWindow", "PDA", nullptr));
     } // retranslateUi
 
 };

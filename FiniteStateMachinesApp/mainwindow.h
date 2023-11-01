@@ -19,5 +19,6 @@ private:
     Ui::MainWindow *ui;
 private slots:
     //void onDFAClicked();
+    void onRButtonToggled(bool);
 };
 #endif // MAINWINDOW_H
