@@ -299,9 +299,9 @@
 			null
 		],
 		[
-			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machineFunctions.h",
+			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.h",
 			"MU",
-			"EWIEGA46WW/moc_machineFunctions.cpp",
+			"EWIEGA46WW/moc_machine.cpp",
 			null
 		],
 		[
@@ -370,6 +370,11 @@
 	[
 		[
 			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp",
 			"MU",
 			null
 		],

@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::DFADialog *ui;
+private slots:
+    void onStateEnter();
 };
 
 #endif // DFADIALOG_H
