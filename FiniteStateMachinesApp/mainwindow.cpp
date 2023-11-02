@@ -4,6 +4,15 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 
+enum Mode {
+    NA,
+    DFA,
+    NFA,
+    PDA
+};
+
+Mode mode = NA;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -12,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->DFARadio, &QRadioButton::toggled, this, &MainWindow::onRButtonToggled);
     connect(ui->NFARadio, &QRadioButton::toggled, this, &MainWindow::onRButtonToggled);
     connect(ui->PDARadio, &QRadioButton::toggled, this, &MainWindow::onRButtonToggled);
+    connect(ui->BuildButton, SIGNAL(clicked()), this, SLOT(onBuildMachineButton()));
     //connect(ui->DFAButton, SIGNAL(clicked()), this, SLOT(onDFAClicked()));
     // Create a new QGraphicsScene
     QGraphicsScene *scene = new QGraphicsScene(this);
@@ -41,10 +51,22 @@ void MainWindow::onRButtonToggled(bool checked) {
 
     if (ui->DFARadio->isChecked()) {
         qDebug() << "DFA mode";
+        mode = DFA;
     } else if (ui->NFARadio->isChecked()) {
         qDebug() << "NFA mode";
+        mode = NFA;
     } else if (ui->PDARadio->isChecked()) {
         qDebug() << "PDA mode";
+        mode = PDA;
+    }
+}
+
+void MainWindow::onBuildMachineButton() {
+    if (mode == DFA) {
+        qDebug() << "Open DFA Window";
+        DFADialog dialog(this);
+        dialog.exec();
+
     }
 }
 

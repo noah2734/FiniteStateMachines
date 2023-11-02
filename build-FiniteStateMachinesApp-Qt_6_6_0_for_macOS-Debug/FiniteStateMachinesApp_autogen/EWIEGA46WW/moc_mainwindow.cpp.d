@@ -624,6 +624,7 @@
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/qos.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdarg.h \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20memory.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20type_traits.h \
@@ -761,7 +762,9 @@
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QDialog \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \

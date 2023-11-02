@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "dfadialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,5 +21,6 @@ private:
 private slots:
     //void onDFAClicked();
     void onRButtonToggled(bool);
+    void onBuildMachineButton();
 };
 #endif // MAINWINDOW_H

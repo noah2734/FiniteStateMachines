@@ -70,6 +70,14 @@ build CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: CXX_COMPILER__Fini
   OBJECT_DIR = CMakeFiles/FiniteStateMachinesApp.dir
   OBJECT_FILE_DIR = CMakeFiles/FiniteStateMachinesApp.dir
 
+build CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o: CXX_COMPILER__FiniteStateMachinesApp_Debug /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp || cmake_object_order_depends_target_FiniteStateMachinesApp
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build-FiniteStateMachinesApp-Qt_6_6_0_for_macOS-Debug/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers
+  OBJECT_DIR = CMakeFiles/FiniteStateMachinesApp.dir
+  OBJECT_FILE_DIR = CMakeFiles/FiniteStateMachinesApp.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target FiniteStateMachinesApp
@@ -78,7 +86,7 @@ build CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: CXX_COMPILER__Fini
 #############################################
 # Link the executable FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp
 
-build FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CXX_EXECUTABLE_LINKER__FiniteStateMachinesApp_Debug CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compilation.cpp.o CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o | /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/QtGui /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/QtCore || FiniteStateMachinesApp_autogen FiniteStateMachinesApp_autogen_timestamp_deps
+build FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CXX_EXECUTABLE_LINKER__FiniteStateMachinesApp_Debug CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compilation.cpp.o CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o | /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/QtWidgets /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/QtGui /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/QtCore || FiniteStateMachinesApp_autogen FiniteStateMachinesApp_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,/Users/noahmcclelland/Qt/6.6.0/macos/lib  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/QtWidgets  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/QtGui  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/QtCore  -framework IOKit  -framework DiskArbitration  -Xlinker -framework -Xlinker OpenGL  -Xlinker -framework -Xlinker AGL  -framework AppKit  -framework ImageIO  -framework Metal
   LINK_PATH = -F/Users/noahmcclelland/Qt/6.6.0/macos/lib
@@ -164,7 +172,7 @@ build FiniteStateMachinesApp_autogen_timestamp_deps: phony CMakeFiles/FiniteStat
 #############################################
 # Utility command for FiniteStateMachinesApp_autogen
 
-build FiniteStateMachinesApp_autogen: phony CMakeFiles/FiniteStateMachinesApp_autogen FiniteStateMachinesApp_autogen/include/ui_mainwindow.h FiniteStateMachinesApp_autogen/timestamp FiniteStateMachinesApp_autogen/mocs_compilation.cpp FiniteStateMachinesApp_autogen_timestamp_deps
+build FiniteStateMachinesApp_autogen: phony CMakeFiles/FiniteStateMachinesApp_autogen FiniteStateMachinesApp_autogen/include/ui_mainwindow.h FiniteStateMachinesApp_autogen/include/ui_dfadialog.h FiniteStateMachinesApp_autogen/timestamp FiniteStateMachinesApp_autogen/mocs_compilation.cpp FiniteStateMachinesApp_autogen_timestamp_deps
 
 
 #############################################
@@ -180,13 +188,13 @@ build FiniteStateMachinesApp_autogen/timestamp FiniteStateMachinesApp_autogen/mo
 #############################################
 # Phony custom command for CMakeFiles/FiniteStateMachinesApp_autogen_timestamp_deps
 
-build CMakeFiles/FiniteStateMachinesApp_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/FiniteStateMachinesApp_autogen_timestamp_deps: phony /Users/noahmcclelland/Qt/6.6.0/macos/./libexec/moc /Users/noahmcclelland/Qt/6.6.0/macos/./libexec/uic /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/QtCore /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/QtWidgets
+build CMakeFiles/FiniteStateMachinesApp_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/FiniteStateMachinesApp_autogen_timestamp_deps: phony /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/QtCore /Users/noahmcclelland/Qt/6.6.0/macos/./libexec/moc /Users/noahmcclelland/Qt/6.6.0/macos/./libexec/uic /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/QtWidgets
 
 
 #############################################
 # Phony custom command for CMakeFiles/FiniteStateMachinesApp_autogen
 
-build CMakeFiles/FiniteStateMachinesApp_autogen FiniteStateMachinesApp_autogen/include/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/FiniteStateMachinesApp_autogen ${cmake_ninja_workdir}FiniteStateMachinesApp_autogen/include/ui_mainwindow.h: phony FiniteStateMachinesApp_autogen/timestamp || FiniteStateMachinesApp_autogen_timestamp_deps
+build CMakeFiles/FiniteStateMachinesApp_autogen FiniteStateMachinesApp_autogen/include/ui_mainwindow.h FiniteStateMachinesApp_autogen/include/ui_dfadialog.h | ${cmake_ninja_workdir}CMakeFiles/FiniteStateMachinesApp_autogen ${cmake_ninja_workdir}FiniteStateMachinesApp_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}FiniteStateMachinesApp_autogen/include/ui_dfadialog.h: phony FiniteStateMachinesApp_autogen/timestamp || FiniteStateMachinesApp_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

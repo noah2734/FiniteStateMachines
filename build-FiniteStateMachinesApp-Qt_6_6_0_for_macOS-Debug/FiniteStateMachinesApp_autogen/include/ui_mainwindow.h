@@ -14,8 +14,10 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -33,6 +35,9 @@ public:
     QRadioButton *DFARadio;
     QRadioButton *NFARadio;
     QRadioButton *PDARadio;
+    QPushButton *BuildButton;
+    QLineEdit *lineEdit;
+    QPushButton *TestButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -123,7 +128,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(70, 190, 661, 351));
+        graphicsView->setGeometry(QRect(70, 180, 661, 351));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
         QBrush brush11(QColor(190, 193, 204, 255));
@@ -195,12 +200,12 @@ public:
         graphicsView->setStyleSheet(QString::fromUtf8(""));
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
-        frame->setGeometry(QRect(120, 40, 521, 80));
+        frame->setGeometry(QRect(120, 10, 521, 80));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         horizontalLayoutWidget = new QWidget(frame);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(79, 0, 381, 80));
+        horizontalLayoutWidget->setGeometry(QRect(70, 0, 381, 80));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -219,10 +224,19 @@ public:
 
         horizontalLayout->addWidget(PDARadio);
 
+        BuildButton = new QPushButton(centralwidget);
+        BuildButton->setObjectName("BuildButton");
+        BuildButton->setGeometry(QRect(330, 100, 100, 32));
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(80, 130, 113, 31));
+        TestButton = new QPushButton(centralwidget);
+        TestButton->setObjectName("TestButton");
+        TestButton->setGeometry(QRect(200, 130, 91, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 36));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -239,6 +253,8 @@ public:
         DFARadio->setText(QCoreApplication::translate("MainWindow", "DFA", nullptr));
         NFARadio->setText(QCoreApplication::translate("MainWindow", "NFA", nullptr));
         PDARadio->setText(QCoreApplication::translate("MainWindow", "PDA", nullptr));
+        BuildButton->setText(QCoreApplication::translate("MainWindow", "Build Machine", nullptr));
+        TestButton->setText(QCoreApplication::translate("MainWindow", "Test", nullptr));
     } // retranslateUi
 
 };
