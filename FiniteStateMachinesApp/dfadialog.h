@@ -18,7 +18,14 @@ public:
 private:
     Ui::DFADialog *ui;
 private slots:
+    //for states
     void onStateEnter();
+    void updateStart(int);
+    void updateAccept(int);
+    //for symbols
+    void onSymbEnter();
+    //for transitions
+    void onTransEnter();
 };
 
 #endif // DFADIALOG_H
