@@ -8,15 +8,21 @@
 
 class Graph {
 private:
-    using Vertex = int;
+    using Vertex = std::string;
     using Label = std::string;
     using Edge = std::pair<Vertex, Label>;
 
     std::unordered_map<Vertex, std::list<Edge>> adj;
 public:
     void addVertex(Vertex v);
+
     void removeVertex(Vertex v);
+
     void addEdge(Vertex v, Vertex w, Label label);
+
+    bool isEmpty() const;
+
+    std::string toString();
 };
 
 struct State {
@@ -39,6 +45,12 @@ struct Transition {
     std::string from;
     std::string on;
     std::string to;
+    Transition() = default;
+    Transition(std::string from, std::string on, std::string to) {
+        this->from = from;
+        this->on = on;
+        this->to = to;
+    }
 };
 
 struct PairHash {
@@ -50,21 +62,30 @@ struct PairHash {
 class DFA {
 private:
     int numStates;
+    int numSymbols;
     std::unordered_map<std::string, State> states;
     std::vector<std::string> symbols;
     std::unordered_map<std::pair<std::string, std::string>, Transition, PairHash> transitions;
 public:
+
+    DFA() {
+        numStates = 0;
+        numSymbols = 0;
+    }
+
     void addState(std::string name, bool isStart, bool isAccept);
 
     State getState(std::string);
 
+    int getNumStates() { return numStates; }
+
     void addSymbol(std::string);
 
-    std::string getSymbol();
+    std::string getSymbol(int index);
 
-    bool emptySymbols() {
-        return symbols.empty();
-    }
+    int getNumSymbols() { return numSymbols; }
+
+    bool emptySymbols() { return symbols.empty(); }
 
     void addTransition(std::string from, std::string on, std::string to);
 

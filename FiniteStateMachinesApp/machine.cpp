@@ -5,10 +5,16 @@
 
 void DFA::addState(std::string name, bool isStart, bool isAccept) {
     states[name] = State(name, isStart, isAccept);
+    numStates++;
 }
 
 void DFA::addSymbol(std::string sym) {
     symbols.push_back(sym);
+    numSymbols++;
+}
+
+std::string DFA::getSymbol(int index) {
+    return symbols[index];
 }
 
 State DFA::getState(std::string name) {
@@ -41,8 +47,23 @@ void Graph::removeVertex(Vertex v) {
     }
 }
 
+bool Graph::isEmpty() const {
+    return adj.empty();
+}
 void Graph::addEdge(Vertex v, Vertex w, Label label) {
     addVertex(v);
     addVertex(w);
     adj[v].push_back({w, label});
+}
+
+std::string Graph::toString() {
+    std::string result = "";
+    for (auto& pair : adj) {
+        std::string vertex1 = pair.first;
+        for (auto& edge : pair.second) {
+            result += "\t " + edge.second + "\n";
+            result += vertex1 + "----->" + edge.first + "\n";
+        }
+    }
+    return result;
 }

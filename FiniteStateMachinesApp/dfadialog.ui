@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>684</width>
     <height>300</height>
    </rect>
   </property>
@@ -265,7 +265,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>state</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="EnterTransBtn">
@@ -324,6 +324,29 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="transErrorLbl">
+   <property name="geometry">
+    <rect>
+     <x>27</x>
+     <y>270</y>
+     <width>331</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>373</x>
+     <y>63</y>
+     <width>221</width>
+     <height>151</height>
+    </rect>
    </property>
   </widget>
  </widget>

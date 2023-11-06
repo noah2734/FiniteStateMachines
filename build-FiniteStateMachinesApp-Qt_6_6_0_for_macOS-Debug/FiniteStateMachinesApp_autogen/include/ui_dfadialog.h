@@ -17,6 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextEdit>
 
 QT_BEGIN_NAMESPACE
 
@@ -46,12 +47,14 @@ public:
     QLabel *numTransLbl;
     QLabel *numForTransLbl;
     QLabel *startStateErrorLbl;
+    QLabel *transErrorLbl;
+    QTextEdit *textEdit;
 
     void setupUi(QDialog *DFADialog)
     {
         if (DFADialog->objectName().isEmpty())
             DFADialog->setObjectName("DFADialog");
-        DFADialog->resize(400, 300);
+        DFADialog->resize(684, 300);
         stateNameLine = new QLineEdit(DFADialog);
         stateNameLine->setObjectName("stateNameLine");
         stateNameLine->setGeometry(QRect(90, 20, 113, 31));
@@ -130,6 +133,12 @@ public:
         QFont font;
         font.setFamilies({QString::fromUtf8("Academy Engraved LET")});
         startStateErrorLbl->setFont(font);
+        transErrorLbl = new QLabel(DFADialog);
+        transErrorLbl->setObjectName("transErrorLbl");
+        transErrorLbl->setGeometry(QRect(27, 270, 331, 20));
+        textEdit = new QTextEdit(DFADialog);
+        textEdit->setObjectName("textEdit");
+        textEdit->setGeometry(QRect(373, 63, 221, 151));
 
         retranslateUi(DFADialog);
 
@@ -154,11 +163,12 @@ public:
         SymbolLbl->setText(QCoreApplication::translate("DFADialog", "On Symbol: ", nullptr));
         OnSymbolLbl->setText(QString());
         goesToLbl->setText(QCoreApplication::translate("DFADialog", "Goes To:", nullptr));
-        gotoLine->setText(QCoreApplication::translate("DFADialog", "state", nullptr));
+        gotoLine->setText(QString());
         EnterTransBtn->setText(QCoreApplication::translate("DFADialog", "Enter", nullptr));
         numTransLbl->setText(QCoreApplication::translate("DFADialog", "Total Transitions: ", nullptr));
         numForTransLbl->setText(QCoreApplication::translate("DFADialog", "0", nullptr));
         startStateErrorLbl->setText(QString());
+        transErrorLbl->setText(QString());
     } // retranslateUi
 
 };
