@@ -18,9 +18,6 @@ Graph graph;
 
 std::vector<std::string> connectedStates; // see onStateEnter and onTransEnter
 
-
-//std::string currStateName = startname;
-
 DFADialog::DFADialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DFADialog)
@@ -38,13 +35,15 @@ DFADialog::DFADialog(QWidget *parent) :
     connect(ui->EnterTransBtn, &QPushButton::clicked, this, &DFADialog::onTransEnter);
     ui->gotoLine->setPlaceholderText("State Name");
 
+    ui->transErrorLbl->setStyleSheet("color: red");
+
 }
 
 DFADialog::~DFADialog()
 {
     delete ui;
 }
-std::string firstStateName; //use as starting point when getting transition input
+std::string startStateName; //use as starting point when getting transition input
 //for states
 void DFADialog::onStateEnter() {
     if (start && startExists) {
@@ -54,10 +53,10 @@ void DFADialog::onStateEnter() {
         std::string name = ui->stateNameLine->text().toStdString();
         if (start) {
             startExists = true;
-            //startName = name;
+            startStateName = name;
             dfa.addState(name, start, acc);
             connectedStates.push_back(dfa.getState(name).name);
-            firstStateName = connectedStates[0];
+            //firstStateName = connectedStates[0];
             stateCounter++;
             ui->stateCounterLbl->setText(QString::number(stateCounter));
             ui->currStateLbl->setText(QString::fromStdString(name));
@@ -99,11 +98,6 @@ void DFADialog::onSymbEnter() {
 }
 
 int connectedStatesCounter = 0;
-int symbolIndex = 0;
-
-std::string toStateName;
-std::string currStateName = firstStateName;
-std::string currSymbol = firstSymbol;
 
 bool inConnectedStates(std::string stateName) {
     for (auto& st : connectedStates) {
@@ -114,50 +108,58 @@ bool inConnectedStates(std::string stateName) {
     return false;
 }
 
-std::string trueStateName;
+std::string fromStateName;
+std::string toStateName;
+std::string currSymbol;
 int numTransCounter = 0;
-int maxTrans;
+int symbolIndex = 0;
+int stateIndex = 0; //use for connected states
+bool reachedMax = false;
 
 void DFADialog::onTransEnter() {
-    maxTrans = dfa.getNumStates() * dfa.getNumSymbols();
-    graph.addVertex(currStateName);
-    toStateName = ui->gotoLine->text().toStdString();
-    graph.addEdge(currStateName, toStateName, currSymbol);
-    dfa.addTransition(currStateName, currSymbol, toStateName);
-    numTransCounter++;
-    if (numTransCounter == maxTrans) {
-        ui->textEdit->setText(QString::fromStdString(graph.toString()));
+    if (reachedMax) {
+        ui->transErrorLbl->setText("You have entered every possible transition");
         return;
     }
-    ui->numForTransLbl->setText(QString::number(numTransCounter));
+    fromStateName = connectedStates[stateIndex];
+    toStateName = ui->gotoLine->text().toStdString();
+    currSymbol = dfa.getSymbol(symbolIndex);
+
+    if (!inConnectedStates(toStateName) && dfa.stateExists(toStateName)) {
+        connectedStates.push_back(dfa.getState(toStateName).name);
+    } else if (!(dfa.stateExists(toStateName))) {
+        ui->transErrorLbl->setText(QString::fromStdString(toStateName) + " does not exist!");
+    }
+
+    qDebug() << "From state: " << QString::fromStdString(fromStateName) << "\n";
+    qDebug() << "On " << QString::fromStdString(currSymbol) << "\n";
+    qDebug() << "To state: " << QString::fromStdString(toStateName) << "\n";
+    qDebug() << "symbolIndex: " << QString::number(symbolIndex) << "\n";
+    qDebug() << "stateIndex: " << QString::number(stateIndex) << "\n";
+
+    //not sure if ill need a graph AND set of transitions, but whatever
+    graph.addVertex(fromStateName);
+    graph.addEdge(fromStateName, toStateName, currSymbol);
+    dfa.addTransition(fromStateName, currSymbol, toStateName);
+    ui->transErrorLbl->setText("");
+
+    ui->numForTransLbl->setText(QString::number(++numTransCounter));
 
     symbolIndex++;
-    if (symbolIndex == symbolCounter) {
+
+    //(numSymbols) transitions per state for DFA
+    if (symbolIndex == dfa.getNumSymbols()) {
         symbolIndex = 0;
-        connectedStatesCounter++;
-    }
-    for (auto& st : connectedStates) {
-        qDebug() << st << "\n" << "--------" << "\n";
-    }
-    ui->currStateLbl->setText(QString::fromStdString(connectedStates[connectedStatesCounter]));
-    currStateName = connectedStates[connectedStatesCounter];
-    trueStateName = dfa.getState(toStateName).name;
-    if (!inConnectedStates(toStateName) && trueStateName != "") {
-        connectedStates.push_back(dfa.getState(toStateName).name);
+        if (stateIndex == connectedStates.size() - 1) {
+            reachedMax = true;
+            //print graph
+            ui->textEdit->setText(QString::fromStdString(graph.toString()));
+            return;
+        }
+        stateIndex++;
     }
 
-    if (trueStateName == "") {
-        ui->transErrorLbl->setStyleSheet("color: red");
-        ui->transErrorLbl->setText(QString::fromStdString(toStateName) + " does not exist!");
-        return;
-    }
-    ui->transErrorLbl->setText("");
-    currSymbol = dfa.getSymbol(symbolIndex);
-    ui->OnSymbolLbl->setText(QString::fromStdString(currSymbol));
+    ui->currStateLbl->setText(QString::fromStdString(connectedStates[stateIndex]));
+    ui->OnSymbolLbl->setText(QString::fromStdString(dfa.getSymbol(symbolIndex)));
 }
-
-void DFADialog::onTransEnter() {
-
-}
-
 

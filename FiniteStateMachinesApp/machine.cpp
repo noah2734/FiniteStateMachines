@@ -21,6 +21,15 @@ State DFA::getState(std::string name) {
     return states[name];
 }
 
+bool DFA::stateExists(std::string name) {
+    auto it = states.find(name);
+    if (it != states.end()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void DFA::addTransition(std::string from, std::string on, std::string to) {
     std::pair<std::string, std::string> key;
     key.first = from;
@@ -61,7 +70,7 @@ std::string Graph::toString() {
     for (auto& pair : adj) {
         std::string vertex1 = pair.first;
         for (auto& edge : pair.second) {
-            result += "\t " + edge.second + "\n";
+            result += "      " + edge.second + "\n";
             result += vertex1 + "----->" + edge.first + "\n";
         }
     }

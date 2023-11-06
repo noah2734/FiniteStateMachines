@@ -77,6 +77,8 @@ public:
 
     State getState(std::string);
 
+    bool stateExists(std::string);
+
     int getNumStates() { return numStates; }
 
     void addSymbol(std::string);
@@ -100,6 +102,6 @@ class PDA {
 
 };
 
-#endif MACHINEFUNCTIONS_H
+#endif //MACHINEFUNCTIONS_H
 
 
