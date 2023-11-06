@@ -44,11 +44,13 @@ static constexpr auto qt_meta_stringdata_CLASSDFADialogENDCLASS = QtMocHelpers::
     "updateStart",
     "updateAccept",
     "onSymbEnter",
-    "onTransEnter"
+    "onTransEnter",
+    "onBuildEnter",
+    "onTestEnter"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSDFADialogENDCLASS_t {
-    uint offsetsAndSizes[14];
+    uint offsetsAndSizes[18];
     char stringdata0[10];
     char stringdata1[13];
     char stringdata2[1];
@@ -56,6 +58,8 @@ struct qt_meta_stringdata_CLASSDFADialogENDCLASS_t {
     char stringdata4[13];
     char stringdata5[12];
     char stringdata6[13];
+    char stringdata7[13];
+    char stringdata8[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSDFADialogENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -67,7 +71,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSDFADialogENDCLASS_t qt_meta_str
         QT_MOC_LITERAL(24, 11),  // "updateStart"
         QT_MOC_LITERAL(36, 12),  // "updateAccept"
         QT_MOC_LITERAL(49, 11),  // "onSymbEnter"
-        QT_MOC_LITERAL(61, 12)   // "onTransEnter"
+        QT_MOC_LITERAL(61, 12),  // "onTransEnter"
+        QT_MOC_LITERAL(74, 12),  // "onBuildEnter"
+        QT_MOC_LITERAL(87, 11)   // "onTestEnter"
     },
     "DFADialog",
     "onStateEnter",
@@ -75,7 +81,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSDFADialogENDCLASS_t qt_meta_str
     "updateStart",
     "updateAccept",
     "onSymbEnter",
-    "onTransEnter"
+    "onTransEnter",
+    "onBuildEnter",
+    "onTestEnter"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -87,7 +95,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSDFADialogENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -95,16 +103,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSDFADialogENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x08,    1 /* Private */,
-       3,    1,   45,    2, 0x08,    2 /* Private */,
-       4,    1,   48,    2, 0x08,    4 /* Private */,
-       5,    0,   51,    2, 0x08,    6 /* Private */,
-       6,    0,   52,    2, 0x08,    7 /* Private */,
+       1,    0,   56,    2, 0x08,    1 /* Private */,
+       3,    1,   57,    2, 0x08,    2 /* Private */,
+       4,    1,   60,    2, 0x08,    4 /* Private */,
+       5,    0,   63,    2, 0x08,    6 /* Private */,
+       6,    0,   64,    2, 0x08,    7 /* Private */,
+       7,    0,   65,    2, 0x08,    8 /* Private */,
+       8,    0,   66,    2, 0x08,    9 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -131,6 +143,10 @@ Q_CONSTINIT const QMetaObject DFADialog::staticMetaObject = { {
         // method 'onSymbEnter'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onTransEnter'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onBuildEnter'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onTestEnter'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -147,6 +163,8 @@ void DFADialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 2: _t->updateAccept((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 3: _t->onSymbEnter(); break;
         case 4: _t->onTransEnter(); break;
+        case 5: _t->onBuildEnter(); break;
+        case 6: _t->onTestEnter(); break;
         default: ;
         }
     }
@@ -171,13 +189,13 @@ int DFADialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }

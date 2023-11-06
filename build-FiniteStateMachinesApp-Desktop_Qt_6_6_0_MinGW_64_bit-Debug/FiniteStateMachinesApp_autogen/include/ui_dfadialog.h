@@ -14,6 +14,7 @@
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -49,12 +50,17 @@ public:
     QLabel *startStateErrorLbl;
     QLabel *transErrorLbl;
     QTextEdit *textEdit;
+    QPushButton *buildBtn;
+    QLabel *buildErrBtn;
+    QGraphicsView *machineView;
+    QLineEdit *testLine;
+    QPushButton *testBtn;
 
     void setupUi(QDialog *DFADialog)
     {
         if (DFADialog->objectName().isEmpty())
             DFADialog->setObjectName("DFADialog");
-        DFADialog->resize(684, 300);
+        DFADialog->resize(640, 700);
         stateNameLine = new QLineEdit(DFADialog);
         stateNameLine->setObjectName("stateNameLine");
         stateNameLine->setGeometry(QRect(90, 20, 113, 31));
@@ -139,6 +145,21 @@ public:
         textEdit = new QTextEdit(DFADialog);
         textEdit->setObjectName("textEdit");
         textEdit->setGeometry(QRect(373, 63, 221, 151));
+        buildBtn = new QPushButton(DFADialog);
+        buildBtn->setObjectName("buildBtn");
+        buildBtn->setGeometry(QRect(440, 240, 75, 24));
+        buildErrBtn = new QLabel(DFADialog);
+        buildErrBtn->setObjectName("buildErrBtn");
+        buildErrBtn->setGeometry(QRect(360, 270, 261, 20));
+        machineView = new QGraphicsView(DFADialog);
+        machineView->setObjectName("machineView");
+        machineView->setGeometry(QRect(35, 340, 500, 350));
+        testLine = new QLineEdit(DFADialog);
+        testLine->setObjectName("testLine");
+        testLine->setGeometry(QRect(40, 301, 113, 31));
+        testBtn = new QPushButton(DFADialog);
+        testBtn->setObjectName("testBtn");
+        testBtn->setGeometry(QRect(170, 300, 75, 31));
 
         retranslateUi(DFADialog);
 
@@ -169,6 +190,9 @@ public:
         numForTransLbl->setText(QCoreApplication::translate("DFADialog", "0", nullptr));
         startStateErrorLbl->setText(QString());
         transErrorLbl->setText(QString());
+        buildBtn->setText(QCoreApplication::translate("DFADialog", "Build", nullptr));
+        buildErrBtn->setText(QString());
+        testBtn->setText(QCoreApplication::translate("DFADialog", "Test", nullptr));
     } // retranslateUi
 
 };

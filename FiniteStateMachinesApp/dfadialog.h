@@ -20,12 +20,22 @@ private:
 private slots:
     //for states
     void onStateEnter();
+
     void updateStart(int);
+
     void updateAccept(int);
+
     //for symbols
     void onSymbEnter();
+
     //for transitions
     void onTransEnter();
+    \
+    //for building/testing
+    void onBuildEnter();
+
+    void onTestEnter();
+
 };
 
 #endif // DFADIALOG_H

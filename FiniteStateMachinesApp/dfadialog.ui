@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>684</width>
-    <height>300</height>
+    <width>640</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -347,6 +347,65 @@
      <width>221</width>
      <height>151</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buildBtn">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>240</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Build</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="buildErrBtn">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>270</y>
+     <width>261</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="machineView">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>340</y>
+     <width>500</width>
+     <height>350</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="testLine">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>301</y>
+     <width>113</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="testBtn">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>300</y>
+     <width>75</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Test</string>
    </property>
   </widget>
  </widget>
