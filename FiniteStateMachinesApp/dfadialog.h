@@ -34,6 +34,8 @@ private slots:
     //for building/testing
     void onBuildEnter();
 
+    void displayGraph();
+
     void onTestEnter();
 
 };

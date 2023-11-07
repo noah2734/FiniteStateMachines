@@ -20,6 +20,8 @@ public:
 
     void addEdge(Vertex v, Vertex w, Label label);
 
+
+
     bool isEmpty() const;
 
     std::string toString();

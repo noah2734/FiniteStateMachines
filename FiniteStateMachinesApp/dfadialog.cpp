@@ -185,8 +185,7 @@ void DFADialog::onTransEnter() {
     ui->OnSymbolLbl->setText(QString::fromStdString(dfa.getSymbol(symbolIndex)));
 }
 
-
-void DFADialog::onBuildEnter() {
+void DFADialog::displayGraph() {
     //if build not finished, error label
     //set scene
     int x = 0;
@@ -202,9 +201,14 @@ void DFADialog::onBuildEnter() {
     QPainterPath path;
 
     //set start state
-    path.moveTo(-200, -150);
-    path.lineTo(-150, -150);
-    path.addEllipse(-150, -150, 25, 25);
+    path.moveTo(0, 12.5);
+    path.lineTo(50, 12.5);
+    //draw arrow
+    path.moveTo(50, 12.5);
+    path.lineTo(45, 15);
+    path.moveTo(50, 12.5);
+    path.lineTo(45, 11);
+    path.addEllipse(50, 0, 25, 25);
 
 
 
@@ -223,8 +227,11 @@ void DFADialog::onBuildEnter() {
     // Update the view
     scene->update();
     ui->machineView->update();
+}
 
 
+void DFADialog::onBuildEnter() {
+    displayGraph();
 }
 
 void DFADialog::onTestEnter() {
