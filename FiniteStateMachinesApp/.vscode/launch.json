@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch App",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "visualizerFile": "/Users/noahmcclelland/Library/Application Support/Code/User/workspaceStorage/9a051c9a4618e294b63b9900df573857/tonka3000.qtvsctools/qt.natvis.xml"
+        }
+    ]
+}
