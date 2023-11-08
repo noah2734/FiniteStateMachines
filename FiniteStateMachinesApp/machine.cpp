@@ -65,6 +65,10 @@ void Graph::addEdge(Vertex v, Vertex w, Label label) {
     adj[v].push_back({w, label});
 }
 
+std::list<Graph::Edge> Graph::getEdges(Vertex v) {
+    return adj[v];
+}
+
 std::string Graph::toString() {
     std::string result = "";
     for (auto& pair : adj) {

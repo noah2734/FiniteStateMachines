@@ -20,7 +20,7 @@ public:
 
     void addEdge(Vertex v, Vertex w, Label label);
 
-
+    std::list<Edge> getEdges(Vertex);
 
     bool isEmpty() const;
 

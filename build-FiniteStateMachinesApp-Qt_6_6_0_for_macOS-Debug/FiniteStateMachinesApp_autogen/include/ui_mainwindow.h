@@ -11,10 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QFrame>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -28,16 +25,12 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QGraphicsView *graphicsView;
-    QFrame *frame;
+    QPushButton *BuildButton;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QRadioButton *DFARadio;
     QRadioButton *NFARadio;
     QRadioButton *PDARadio;
-    QPushButton *BuildButton;
-    QLineEdit *lineEdit;
-    QPushButton *TestButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -45,24 +38,24 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(503, 381);
         QPalette palette;
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        QBrush brush1(QColor(82, 83, 89, 255));
+        QBrush brush1(QColor(12, 65, 108, 255));
         brush1.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Button, brush1);
-        QBrush brush2(QColor(123, 125, 133, 255));
+        QBrush brush2(QColor(18, 98, 161, 255));
         brush2.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Light, brush2);
-        QBrush brush3(QColor(102, 104, 111, 255));
+        QBrush brush3(QColor(15, 81, 134, 255));
         brush3.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Midlight, brush3);
-        QBrush brush4(QColor(41, 42, 44, 255));
+        QBrush brush4(QColor(6, 33, 54, 255));
         brush4.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Dark, brush4);
-        QBrush brush5(QColor(55, 56, 59, 255));
+        QBrush brush5(QColor(8, 43, 72, 255));
         brush5.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Mid, brush5);
         palette.setBrush(QPalette::Active, QPalette::Text, brush);
@@ -73,7 +66,7 @@ public:
         palette.setBrush(QPalette::Active, QPalette::Base, brush6);
         palette.setBrush(QPalette::Active, QPalette::Window, brush1);
         palette.setBrush(QPalette::Active, QPalette::Shadow, brush6);
-        QBrush brush7(QColor(41, 41, 44, 255));
+        QBrush brush7(QColor(6, 32, 54, 255));
         brush7.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush7);
         QBrush brush8(QColor(255, 255, 220, 255));
@@ -118,7 +111,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush1);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
-        QBrush brush10(QColor(41, 42, 44, 127));
+        QBrush brush10(QColor(6, 33, 54, 127));
         brush10.setStyle(Qt::SolidPattern);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush10);
@@ -126,86 +119,12 @@ public:
         MainWindow->setPalette(palette);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        graphicsView = new QGraphicsView(centralwidget);
-        graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(70, 180, 661, 351));
-        QPalette palette1;
-        palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        QBrush brush11(QColor(190, 193, 204, 255));
-        brush11.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Button, brush11);
-        palette1.setBrush(QPalette::Active, QPalette::Light, brush);
-        QBrush brush12(QColor(222, 224, 229, 255));
-        brush12.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Midlight, brush12);
-        QBrush brush13(QColor(95, 97, 102, 255));
-        brush13.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Dark, brush13);
-        QBrush brush14(QColor(126, 129, 136, 255));
-        brush14.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Mid, brush14);
-        palette1.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette1.setBrush(QPalette::Active, QPalette::BrightText, brush);
-        palette1.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush);
-        palette1.setBrush(QPalette::Active, QPalette::Window, brush11);
-        palette1.setBrush(QPalette::Active, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Active, QPalette::AlternateBase, brush12);
-        palette1.setBrush(QPalette::Active, QPalette::ToolTipBase, brush8);
-        palette1.setBrush(QPalette::Active, QPalette::ToolTipText, brush6);
-        QBrush brush15(QColor(0, 0, 0, 127));
-        brush15.setStyle(Qt::SolidPattern);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush15);
-#endif
-        palette1.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush11);
-        palette1.setBrush(QPalette::Inactive, QPalette::Light, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::Midlight, brush12);
-        palette1.setBrush(QPalette::Inactive, QPalette::Dark, brush13);
-        palette1.setBrush(QPalette::Inactive, QPalette::Mid, brush14);
-        palette1.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::BrightText, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush11);
-        palette1.setBrush(QPalette::Inactive, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush12);
-        palette1.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush8);
-        palette1.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush6);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush15);
-#endif
-        palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush13);
-        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush11);
-        palette1.setBrush(QPalette::Disabled, QPalette::Light, brush);
-        palette1.setBrush(QPalette::Disabled, QPalette::Midlight, brush12);
-        palette1.setBrush(QPalette::Disabled, QPalette::Dark, brush13);
-        palette1.setBrush(QPalette::Disabled, QPalette::Mid, brush14);
-        palette1.setBrush(QPalette::Disabled, QPalette::Text, brush13);
-        palette1.setBrush(QPalette::Disabled, QPalette::BrightText, brush);
-        palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush13);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush11);
-        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush11);
-        palette1.setBrush(QPalette::Disabled, QPalette::Shadow, brush6);
-        palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush11);
-        palette1.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
-        palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush6);
-        QBrush brush16(QColor(95, 97, 102, 127));
-        brush16.setStyle(Qt::SolidPattern);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush16);
-#endif
-        graphicsView->setPalette(palette1);
-        graphicsView->setStyleSheet(QString::fromUtf8(""));
-        frame = new QFrame(centralwidget);
-        frame->setObjectName("frame");
-        frame->setGeometry(QRect(120, 10, 521, 80));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        horizontalLayoutWidget = new QWidget(frame);
+        BuildButton = new QPushButton(centralwidget);
+        BuildButton->setObjectName("BuildButton");
+        BuildButton->setGeometry(QRect(200, 220, 100, 32));
+        horizontalLayoutWidget = new QWidget(centralwidget);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(70, 0, 381, 80));
+        horizontalLayoutWidget->setGeometry(QRect(60, 100, 381, 80));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -224,19 +143,10 @@ public:
 
         horizontalLayout->addWidget(PDARadio);
 
-        BuildButton = new QPushButton(centralwidget);
-        BuildButton->setObjectName("BuildButton");
-        BuildButton->setGeometry(QRect(330, 100, 100, 32));
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(80, 130, 113, 31));
-        TestButton = new QPushButton(centralwidget);
-        TestButton->setObjectName("TestButton");
-        TestButton->setGeometry(QRect(200, 130, 91, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 36));
+        menubar->setGeometry(QRect(0, 0, 503, 36));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -250,11 +160,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        BuildButton->setText(QCoreApplication::translate("MainWindow", "Build Machine", nullptr));
         DFARadio->setText(QCoreApplication::translate("MainWindow", "DFA", nullptr));
         NFARadio->setText(QCoreApplication::translate("MainWindow", "NFA", nullptr));
         PDARadio->setText(QCoreApplication::translate("MainWindow", "PDA", nullptr));
-        BuildButton->setText(QCoreApplication::translate("MainWindow", "Build Machine", nullptr));
-        TestButton->setText(QCoreApplication::translate("MainWindow", "Test", nullptr));
     } // retranslateUi
 
 };

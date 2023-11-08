@@ -2,8 +2,6 @@
 #include "qpainterpath.h"
 #include "ui_dfadialog.h"
 #include "machine.h"
-#include <QGraphicsPathItem>
-
 
 #include <vector>
 #include <string>
@@ -187,9 +185,7 @@ void DFADialog::onTransEnter() {
 
 void DFADialog::displayGraph() {
     //if build not finished, error label
-    //set scene
-    int x = 0;
-    int y = 0;
+
 
     QGraphicsScene *scene = ui->machineView->scene();
     if (!scene) {
@@ -197,19 +193,98 @@ void DFADialog::displayGraph() {
         ui->machineView->setScene(scene);
     }
 
+    //for each state in connected states, add line and arrow, saving location of each state that is currently part of the graph
+    //for every transition coming out of a state, alter angle of line by a factor determined by the numSymbols in input alphabet
+    //The position of the states will differ depending on how many states there are
+    //i.e if there are 4 states it would be a rectangle, if there are 5, a pentagram.
+    //I might eventually come up with a more sophisticated algorithm but for now this will do.
+    std::unordered_map<std::string, std::pair<int, int>> stateLocations;
+    std::pair<int, int> FromCoordinate = {0,0};
+    std::pair<int, int> ToCoordinate = {0, 0};
+    std::pair<int, int> arrowCoordinate = {0, 0};
+    std::pair<int, int> ellipseCoordinate = {0, 0};
+    std::pair<int, int> ellipseSize = {0, 0};
+    bool startAdded = false;
+
     // Create a QPainterPath and add elements to it
     QPainterPath path;
+    EllipseTextItem *item;
+    QPolygonF arrowHead;
+    QGraphicsPolygonItem* arrowItem;
 
-    //set start state
-    path.moveTo(0, 12.5);
-    path.lineTo(50, 12.5);
-    //draw arrow
-    path.moveTo(50, 12.5);
-    path.lineTo(45, 15);
-    path.moveTo(50, 12.5);
-    path.lineTo(45, 11);
-    path.addEllipse(50, 0, 25, 25);
+    std::string currentState;
+    int stindex = 0;
+    int syndex = 0;
 
+    for (auto& st : connectedStates) {
+        if (!startAdded) {
+            //set to where we want the start state positioned
+            ToCoordinate.first = 50;
+            //set relative to where toCoordinate is
+            arrowCoordinate.first = 50;
+
+            ellipseSize.first = 25;
+            ellipseSize.second = 25;
+
+            //Coordinates of ellipse describe the upper left corner of its frame
+            //so its position changes depending on its size
+            ellipseCoordinate.first = 50;
+            ellipseCoordinate.second = -(ellipseSize.second / 2);
+
+            path.moveTo(FromCoordinate.first, FromCoordinate.second);
+            path.lineTo(ToCoordinate.first, ToCoordinate.second);
+            //create arrow
+            arrowHead << QPointF(arrowCoordinate.first, arrowCoordinate.second) << QPointF(arrowCoordinate.first - 5, arrowCoordinate.second + 3) << QPointF(arrowCoordinate.first - 5, arrowCoordinate.second - 3);
+            //set ellipse and name of start state
+            item = new EllipseTextItem(QRectF(ellipseCoordinate.first, ellipseCoordinate.second, ellipseSize.first, ellipseSize.second), QString::fromStdString(startStateName));
+
+            arrowItem = scene->addPolygon(arrowHead);
+            scene->addItem(item);
+            //save location of start state
+            stateLocations[startStateName] = ellipseCoordinate;
+
+            startAdded = true;
+
+            FromCoordinate.first = ellipseCoordinate.first + ellipseSize.first;
+            FromCoordinate.second = 0;
+
+            continue;
+        }
+
+        currentState = connectedStates[++stindex];
+        for (auto& edge : graph.getEdges(currentState)) {
+            auto it = stateLocations.find(currentState);
+            if (it == stateLocations.end()) {
+                path.moveTo(FromCoordinate.first, FromCoordinate.second);
+
+                ToCoordinate.first = FromCoordinate.first + 50;
+                ToCoordinate.second = FromCoordinate.second;
+
+                arrowCoordinate.first = ToCoordinate.first;
+                arrowCoordinate.second = ToCoordinate.second;
+
+                path.lineTo(ToCoordinate.first, ToCoordinate.second);
+
+                ellipseCoordinate.first = ToCoordinate.first;
+                ellipseCoordinate.second = ToCoordinate.second;
+
+
+
+                //create arrow
+                arrowHead << QPointF(arrowCoordinate.first, arrowCoordinate.second) << QPointF(arrowCoordinate.first - 5, arrowCoordinate.second + 3) << QPointF(arrowCoordinate.first - 5, arrowCoordinate.second - 3);
+                //set ellipse and name of start state
+                item = new EllipseTextItem(QRectF(ellipseCoordinate.first, ellipseCoordinate.second - ellipseSize.second/2, ellipseSize.first, ellipseSize.second), QString::fromStdString(edge.first));
+                //item = new EllipseTextItem(QRectF(100, 100, 25, 25), "FUCK");
+                arrowItem = scene->addPolygon(arrowHead);
+                scene->addItem(item);
+            } else {
+                qDebug() << "IDK what im doing tbh";
+            }
+        }
+
+
+
+    }
 
 
     // Add path to scene
@@ -219,6 +294,8 @@ void DFADialog::displayGraph() {
     QPen pen(Qt::black);
     pen.setWidth(2);
     pathItem->setPen(pen);
+    arrowItem->setPen(pen);
+    arrowItem->setBrush(Qt::black);
 
 
     // Optionally set the scene rect if you want to specify the visible area
