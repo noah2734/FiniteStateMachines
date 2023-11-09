@@ -183,12 +183,28 @@ void DFADialog::onTransEnter() {
     ui->OnSymbolLbl->setText(QString::fromStdString(dfa.getSymbol(symbolIndex)));
 }
 
+QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt) {
+    QPolygonF arrowHead;
 
+    // Calculate the angle of the line
+    double angle = std::atan2(endPt.y() - startPt.y(), endPt.x() - startPt.x());
+
+    // Define the size of the arrowhead
+    const double arrowHeadLength = 10.0; // length in pixels
+    const double arrowHeadWidth = 5.0; // width in pixels
+
+    // Calculate the points of the arrowhead
+    QPointF arrowP1 = endPt + QPointF(sin(angle - M_PI / 3) * arrowHeadLength,
+                                      cos(angle - M_PI / 3) * arrowHeadLength);
+    QPointF arrowP2 = endPt + QPointF(sin(angle - M_PI + M_PI / 3) * arrowHeadLength,
+                                      cos(angle - M_PI + M_PI / 3) * arrowHeadLength);
+
+    arrowHead << endPt << arrowP1 << arrowP2;
+    return arrowHead;
+}
 
 void DFADialog::displayGraph() {
     //if build not finished, error label
-
-
     QGraphicsScene *scene = ui->machineView->scene();
     if (!scene) {
         scene = new QGraphicsScene(this);
@@ -198,19 +214,22 @@ void DFADialog::displayGraph() {
     //for each state in connected states, add line and arrow, saving location of each state that is currently part of the graph
     //for every transition coming out of a state, alter angle of line by a factor determined by the numSymbols in input alphabet
     //The position of the states will differ depending on how many states there are
-    //i.e if there are 4 states it would be a rectangle, if there are 5, a pentagram.
+    //i.e if there are 4 states it would be a diamond, if there are 5, a pentagram.
     //I might eventually come up with a more sophisticated algorithm but for now this will do.
-    std::unordered_map<std::string, std::pair<int, int>> stateLocations;
-    std::pair<int, int> From = {0,0};
-    std::pair<int, int> To = {0, 0};
-    std::pair<int, int> arrow = {0, 0};
-    std::pair<int, int> ellipse = {0, 0};
-    std::pair<int, int> ellipseSize = {20, 20};
+    std::unordered_map<std::string, QPointF> stateLocations;
+    QPointF From(0, 0);
+    QPointF control(0, 0);
+    QPointF To(0, 0);
+    QPointF arrow(0, 0);
+    QPointF ellipse(0, 0);
+    QPointF ellipseSize(25, 25);
     bool startAdded = false;
 
     // Create a QPainterPath and add elements to it
     QPainterPath path;
+    QPainter painter(this);
     EllipseTextItem *item;
+    QGraphicsEllipseItem *item1;
     QPolygonF arrowHead;
     QGraphicsPolygonItem* arrowItem;
 
@@ -225,60 +244,132 @@ void DFADialog::displayGraph() {
     ui->buildErrLbl->setText("");
     //first add states
     for (auto& st : connectedStates) { 
-       item = new EllipseTextItem(QRectF(ellipse.first, ellipse.second, ellipseSize.first, ellipseSize.second), QString::fromStdString(st));
-         scene->addItem(item);
         if (connectedStates.size() == 2) {
-            ellipse.first += 50;
-            ellipse.second += 0;
+            ellipse = QPoint(ellipse.x() + 100, ellipse.y());
         } else if (connectedStates.size() == 3) {
             if (stindex == 1) {
-                ellipse.first += 50;
-                ellipse.second -= 50;
+                ellipse = QPointF(ellipse.x() + 100, ellipse.y() - 100);
             } else {
-                ellipse.first += 50;
-                ellipse.second += 50;
+                ellipse = QPointF(ellipse.x() + 100, ellipse.y() + 100);
             }
         } else if (connectedStates.size() == 4) {
             switch (stindex) {
             case 0:
-                ellipse.first += 50;
-                ellipse.second += 50;
+                ellipse = QPointF(ellipse.x() + 100, ellipse.y() + 100);
                 break;
             case 1:
-                ellipse.first += 50;
-                ellipse.second -= 50;
+                ellipse = QPointF(ellipse.x() + 100, ellipse.y() - 100);
                 break;
             case 2:
-                ellipse.first -= 50;
-                ellipse.second -= 50;
+                ellipse = QPointF(ellipse.x() - 100, ellipse.y() - 100);
                 break;
             case 3:
-                ellipse.first -= 50;
-                ellipse.second += 50;
+                ellipse = QPointF(ellipse.x() - 100, ellipse.y() + 100);
                 break;
             }
         } else if (connectedStates.size() >= 5) {
-            if (stindex == 0) {
-                ellipse.first += 50;
-            } else if ((connectedStates.size() % 2 == 0) && (stindex < connectedStates.size()/2)) {
-
+            if (stindex == 1) {
+                ellipse = QPointF(ellipse.x() + 100, ellipse.y());
+            } else if ((connectedStates.size() % 2 == 0) && (stindex < connectedStates.size()/2 )) {
+                ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 60);
+            } else if ((connectedStates.size() % 2 == 0) && (stindex == connectedStates.size()/2 )) {
+                ellipse = QPointF(ellipse.x(), ellipse.y() + 100);
+            } else if ((stindex != connectedStates.size() - 1) && (connectedStates.size() % 2 == 0) && (stindex > connectedStates.size()/2 - 1)) {
+                ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 60);
+            } else if ((connectedStates.size() % 2 == 1) && (stindex <= connectedStates.size()/2)) {
+                ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 60);
+            } else if ((stindex != connectedStates.size() - 1) && (connectedStates.size() % 2 == 1) && (stindex > connectedStates.size()/2)) {
+                ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 60);
+            } else if (stindex == connectedStates.size() - 1) {
+                ellipse = QPointF(ellipse.x() - 100, ellipse.y());
             }
         }
+        item = new EllipseTextItem(QRectF(ellipse, QSizeF(ellipseSize.x(), ellipseSize.y())), QString::fromStdString(st));
+        if (dfa.getState(st).isAccept) {
+            item1 = new QGraphicsEllipseItem(QRectF(QPointF(ellipse.x() + 2, ellipse.y() + 2), QSizeF(ellipseSize.x() - 4, ellipseSize.y() - 4)));
+            scene->addItem(item1);
+        }
+        scene->addItem(item);
+
         stindex++;
-        stateLocations[st] = {ellipse.first, ellipse.second};
-        qDebug() << "{" << ellipse.first << ", " << ellipse.second << "}";
+
+        stateLocations[st] = ellipse;
+
+        qDebug() << "(" << ellipse.x() << ", " << ellipse.y() << ")";
     }
 
-    /*for (auto& edge : graph.getEdges(currentState)) {
-            auto it = stateLocations.find(currentState);
-            if (it == stateLocations.end()) {
-                
-            } else {
-                qDebug() << "IDK what im doing tbh";
+    //add transitions
+    //first add start arrow
+    From = QPointF((stateLocations[startStateName].x() - 15), (stateLocations[startStateName].y() + (ellipseSize.y() / 2)));
+    To = QPointF(stateLocations[startStateName].x(), stateLocations[startStateName].y() + (ellipseSize.y() / 2));
+
+    path.moveTo(From);
+    path.lineTo(To);
+
+    arrowHead << To << QPointF(To.x() - 5, To.y() + 2.5) << QPointF(To.x() - 5, To.y() - 2.5);
+
+    scene->addPolygon(arrowHead);
+
+    stindex = 0;
+    int x1;
+    int y1;
+    int x2;
+    int y2;
+    
+    QVector<QPolygonF> arrowheads;
+    for (auto& st : connectedStates) {
+        for (auto& edge : graph.getEdges(st)) {
+            x1 = stateLocations[st].x();
+            y1 = stateLocations[st].y();
+            x2 = stateLocations[edge.first].x();
+            y2 = stateLocations[edge.first].y();
+            
+            //if state a straight right of state b
+            if ((x1 == x2) && (y1 == y2)) {
+                //loop to same state
+            } else if ((x1 < x2) && (y1 == y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(0))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(0))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI))));                
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2), (From.y() + ((To.y() - From.y()) / 2)) - 5);
+            } else if (x1 > x2 && (y1 == y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(0))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(0))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2), (From.y() + ((To.y() - From.y()) / 2)) + 5);
+            } else if ((x1 == x2) && (y1 > y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_2))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_2))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_2))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_2))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 5, (From.y() + ((To.y() - From.y()) / 2)));
+            } else if ((x1 == x2) && (y1 < y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_2))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_2))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_2))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_2))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2)));
+            } else if ((x1 < x2) && (y1 < y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_4))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(5*M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(5*M_PI_4))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 5, (From.y() + ((To.y() - From.y()) / 2)) - 5);
+            } else if ((x1 < x2) && (y1 > y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI_4))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_4))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2)) - 5);
+            } else if ((x1 > x2) && (y1 < y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_4))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI_4))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 5, (From.y() + ((To.y() - From.y()) / 2) + 5));
+            } else if ((x1 > x2) && (y1 > y2)) {
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(5*M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(5*M_PI_4))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_4))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2) + 5));
             }
-        }*/
-
-
+            path.moveTo(From);
+            path.quadTo(control, To);
+            arrowheads.append(createArrowhead(To, From));
+            //painter.drawPolygon(arrowHead);
+        }
+    }
+    for (int i = 0; i < arrowheads.size(); ++i) {
+        scene->addPolygon(arrowheads[i]);
+    }
+    scene->addPath(path);
     // Add path to scene
     //QGraphicsPathItem *pathItem = scene->addPath(path);
 
