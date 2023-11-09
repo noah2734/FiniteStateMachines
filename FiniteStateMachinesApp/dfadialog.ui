@@ -720,7 +720,7 @@
     <string>Build</string>
    </property>
   </widget>
-  <widget class="QLabel" name="buildErrBtn">
+  <widget class="QLabel" name="buildErrLbl">
    <property name="geometry">
     <rect>
      <x>360</x>

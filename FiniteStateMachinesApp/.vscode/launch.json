@@ -1,5 +1,5 @@
 {
-    "version": "0.2.0",
+    "version": "2.0.0",
     "configurations": [
         {
             "name": "Launch App",
@@ -12,7 +12,8 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb",
-            "visualizerFile": "/Users/noahmcclelland/Library/Application Support/Code/User/workspaceStorage/9a051c9a4618e294b63b9900df573857/tonka3000.qtvsctools/qt.natvis.xml"
+            "visualizerFile": "/Users/noahmcclelland/Library/Application Support/Code/User/workspaceStorage/9a051c9a4618e294b63b9900df573857/tonka3000.qtvsctools/qt.natvis.xml",
+            "preLaunchTask": "Build and Run",
         }
     ]
 }

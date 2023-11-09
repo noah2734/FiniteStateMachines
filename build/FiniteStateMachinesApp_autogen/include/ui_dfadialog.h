@@ -45,7 +45,7 @@ public:
     QLabel *transErrorLbl;
     QTextEdit *textEdit;
     QPushButton *buildBtn;
-    QLabel *buildErrLbl;
+    QLabel *buildErrBtn;
     QGraphicsView *machineView;
     QLineEdit *testLine;
     QPushButton *testBtn;
@@ -202,9 +202,9 @@ public:
         buildBtn = new QPushButton(DFADialog);
         buildBtn->setObjectName("buildBtn");
         buildBtn->setGeometry(QRect(440, 240, 75, 24));
-        buildErrLbl = new QLabel(DFADialog);
-        buildErrLbl->setObjectName("buildErrBtn");
-        buildErrLbl->setGeometry(QRect(360, 270, 261, 20));
+        buildErrBtn = new QLabel(DFADialog);
+        buildErrBtn->setObjectName("buildErrBtn");
+        buildErrBtn->setGeometry(QRect(360, 270, 261, 20));
         machineView = new QGraphicsView(DFADialog);
         machineView->setObjectName("machineView");
         machineView->setGeometry(QRect(35, 340, 500, 350));
@@ -328,7 +328,7 @@ public:
         startStateErrorLbl->setText(QString());
         transErrorLbl->setText(QString());
         buildBtn->setText(QCoreApplication::translate("DFADialog", "Build", nullptr));
-        buildErrLbl->setText(QString());
+        buildErrBtn->setText(QString());
         testBtn->setText(QCoreApplication::translate("DFADialog", "Test", nullptr));
         numSymLbl->setText(QCoreApplication::translate("DFADialog", "0", nullptr));
         symLbl->setText(QCoreApplication::translate("DFADialog", "Total symbols:", nullptr));

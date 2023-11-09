@@ -1,35 +1,31 @@
 {
-    "label": "Build and Run",
-    "type": "shell",
-    "command": "/opt/homebrew/bin/cmake",
-    "args": [
-        "--build",
-        "${workspaceFolder}/build",
-        "--config",
-        "Debug",
-        "--target",
-        "all",
-        "--",
-        "-j",
-        "10"
-    ],
-    "group": "build",
-    "isBackground": true,
-    "problemMatcher": {
-        "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceFolder}"],
-        "pattern": {
-            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-            "file": 1,
-            "line": 2,
-            "column": 3,
-            "severity": 4,
-            "message": 5
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run",
+            "type": "shell",
+            "command": "/opt/homebrew/bin/cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--config",
+                "Debug",
+                "--target",
+                "all",
+                "--",
+                "-j",
+                "10"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            
         }
-    },
-    "presentation": {
-        "reveal": "always",
-        "panel": "new"
-    },
-    "postTask": "Open App"
+    ]
 }

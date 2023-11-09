@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compilation.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build/FiniteStateMachinesApp_autogen/mocs_compilation.cpp",
+  "file": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build/FiniteStateMachinesApp_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compilation.cpp.o"
+},
+{
+  "directory": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/main.cpp",
+  "file": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/main.cpp",
+  "output": "CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.cpp",
+  "file": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.cpp",
+  "output": "CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o"
+},
+{
+  "directory": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp",
+  "file": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp",
+  "output": "CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o"
+},
+{
+  "directory": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp",
+  "file": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp",
+  "output": "CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o"
+}
+]
