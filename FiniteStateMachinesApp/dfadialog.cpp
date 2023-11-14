@@ -5,6 +5,8 @@
 
 #include <vector>
 #include <string>
+//#include <QPair>
+//a#include <QVector>
 
 bool start = false;
 bool acc = false;
@@ -367,17 +369,29 @@ void DFADialog::displayGraph() {
     int x2;
     int y2;
     int q;
+    QString label;
     QVector<QPolygonF> arrowheads;
+    QVector<QPair<QString, QPointF>> textItems;
     for (auto& st : connectedStates) {
         for (auto& edge : graph.getEdges(st)) {
             x1 = stateLocations[st].x();
             y1 = stateLocations[st].y();
             x2 = stateLocations[edge.first].x();
             y2 = stateLocations[edge.first].y();
+            label = QString::fromStdString(edge.second);
+            qDebug() << edge.second;
             
             //if state a straight right of state b
             if ((x1 == x2) && (y1 == y2)) {
-                //loop to same state
+                /*if (y1 > 0) {
+                    From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(4*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(4*M_PI/3))));
+                    To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(10*M_PI/6))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(10*M_PI/6))));      
+                    control = QPointF(From.x(), From.y() - 10);          
+                } else {
+                    From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(2*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(2*M_PI/3))));
+                    To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI/3))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI/3))));      
+                    control = QPointF(From.x(), From.y() + 10);   
+                }*/
             } else if ((x1 < x2) && (y1 == y2)) {
                 q = 6;
                 From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI/3))));
@@ -422,11 +436,21 @@ void DFADialog::displayGraph() {
             path.moveTo(From);
             path.quadTo(control, To);
             arrowheads.append(createArrowhead(To, From, q));
+            textItems.append({label, QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2) - 7))});
             //painter.drawPolygon(arrowHead);
         }
     }
     for (int i = 0; i < arrowheads.size(); ++i) {
         scene->addPolygon(arrowheads[i]);
+    }
+    QBrush brush(Qt::black);
+    for (const auto &item : textItems) {
+        QGraphicsTextItem *textItem = new QGraphicsTextItem(item.first);
+        textItem->setPos(item.second);
+        textItem->setZValue(1);
+        textItem->setFont(QFont("Arial", 10));
+        textItem->setDefaultTextColor(brush.color());
+        scene->addItem(textItem);
     }
     scene->addPath(path);
     // Add path to scene
