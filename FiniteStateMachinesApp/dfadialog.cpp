@@ -183,23 +183,74 @@ void DFADialog::onTransEnter() {
     ui->OnSymbolLbl->setText(QString::fromStdString(dfa.getSymbol(symbolIndex)));
 }
 
-QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt) {
+//quadrant refers to the quadrant of the circle that the endpoint connects to
+QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt, int quadrant) {
     QPolygonF arrowHead;
 
-    // Calculate the angle of the line
-    double angle = std::atan2(endPt.y() - startPt.y(), endPt.x() - startPt.x());
+    QPointF arrowP1;
+    QPointF arrowP2;
 
-    // Define the size of the arrowhead
-    const double arrowHeadLength = 10.0; // length in pixels
-    const double arrowHeadWidth = 5.0; // width in pixels
+    switch(quadrant) {
+        case 1:
+            arrowP1 = QPointF(endPt.x() + 5,
+                              endPt.y());
+            arrowP2 = QPointF(endPt.x(),
+                              endPt.y() + 5);
+            break;
+        case 2:
+            arrowP1 = QPointF(endPt.x(),
+                              endPt.y() + 5);
+            arrowP2 = QPointF(endPt.x() - 5,
+                              endPt.y());
+            break;
+        case 3:
+            arrowP1 = QPointF(endPt.x(),
+                              endPt.y() - 5);
+            arrowP2 = QPointF(endPt.x() - 5,
+                              endPt.y());
+            break;
+        case 4:
+            arrowP1 = QPointF(endPt.x() + 5,
+                              endPt.y());
+            arrowP2 = QPointF(endPt.x(),
+                              endPt.y() - 5);
+            break;
+        case 5: // horizntal left
+            arrowP1 = QPointF(endPt.x() - (5*cos(3*M_PI_4)),
+                              endPt.y() + 5*sin(3*M_PI_4));
+            arrowP2 = QPointF(endPt.x() - (5*cos(5*M_PI_4)),
+                              endPt.y() + (5*sin(5*M_PI_4)));
+            break;
+        case 6: // horizontal right
+            arrowP1 = QPointF(endPt.x() + 5*cos(3*M_PI_4),
+                              endPt.y() + 5*sin(3*M_PI_4));
+            arrowP2 = QPointF(endPt.x() + 5*cos(5*M_PI_4),
+                              endPt.y() + 5*sin(5*M_PI_4));
+            break;
+        case 7: //vertical up
+            arrowP1 = QPointF(endPt.x() - 5*cos(M_PI_4),
+                              endPt.y() - 5*sin(M_PI_4));
+            arrowP2 = QPointF(endPt.x() - 5*cos(3*M_PI_4),
+                              endPt.y() - 5*sin(3*M_PI_4));
+            break;
+        case 8: //vertical down
+            arrowP1 = QPointF(endPt.x() - 5*cos(-M_PI_4),
+                              endPt.y() - 5*sin(-M_PI_4));
+            arrowP2 = QPointF(endPt.x() - 5*cos(5*M_PI_4),
+                              endPt.y() - 5*sin(5*M_PI_4));
+        
+    }
 
-    // Calculate the points of the arrowhead
+    /*QPointF arrowSideOffset(cos(angle) * arrowHeadWidth, sin(angle) * arrowHeadWidth);
+
     QPointF arrowP1 = endPt + QPointF(sin(angle - M_PI / 3) * arrowHeadLength,
-                                      cos(angle - M_PI / 3) * arrowHeadLength);
-    QPointF arrowP2 = endPt + QPointF(sin(angle - M_PI + M_PI / 3) * arrowHeadLength,
-                                      cos(angle - M_PI + M_PI / 3) * arrowHeadLength);
+                                    cos(angle - M_PI / 3) * arrowHeadLength) - arrowSideOffset;
+    QPointF arrowP2 = endPt + QPointF(sin(angle + M_PI / 3) * arrowHeadLength,
+                                    cos(angle + M_PI / 3) * arrowHeadLength) + arrowSideOffset;
+    */
 
     arrowHead << endPt << arrowP1 << arrowP2;
+
     return arrowHead;
 }
 
@@ -271,15 +322,15 @@ void DFADialog::displayGraph() {
             if (stindex == 1) {
                 ellipse = QPointF(ellipse.x() + 100, ellipse.y());
             } else if ((connectedStates.size() % 2 == 0) && (stindex < connectedStates.size()/2 )) {
-                ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 60);
+                ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 90);
             } else if ((connectedStates.size() % 2 == 0) && (stindex == connectedStates.size()/2 )) {
                 ellipse = QPointF(ellipse.x(), ellipse.y() + 100);
             } else if ((stindex != connectedStates.size() - 1) && (connectedStates.size() % 2 == 0) && (stindex > connectedStates.size()/2 - 1)) {
-                ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 60);
+                ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 90);
             } else if ((connectedStates.size() % 2 == 1) && (stindex <= connectedStates.size()/2)) {
-                ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 60);
+                ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 90);
             } else if ((stindex != connectedStates.size() - 1) && (connectedStates.size() % 2 == 1) && (stindex > connectedStates.size()/2)) {
-                ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 60);
+                ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 90);
             } else if (stindex == connectedStates.size() - 1) {
                 ellipse = QPointF(ellipse.x() - 100, ellipse.y());
             }
@@ -315,7 +366,7 @@ void DFADialog::displayGraph() {
     int y1;
     int x2;
     int y2;
-    
+    int q;
     QVector<QPolygonF> arrowheads;
     for (auto& st : connectedStates) {
         for (auto& edge : graph.getEdges(st)) {
@@ -328,41 +379,49 @@ void DFADialog::displayGraph() {
             if ((x1 == x2) && (y1 == y2)) {
                 //loop to same state
             } else if ((x1 < x2) && (y1 == y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(0))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(0))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI))));                
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2), (From.y() + ((To.y() - From.y()) / 2)) - 5);
+                q = 6;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI/3))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(7*M_PI/6))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(7*M_PI/6))));                
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2), (From.y() + ((To.y() - From.y()) / 2)) - 10);
             } else if (x1 > x2 && (y1 == y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(0))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(0))));
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2), (From.y() + ((To.y() - From.y()) / 2)) + 5);
+                q = 5;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(5*M_PI/6))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(5*M_PI/6)))); 
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI/3))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI/3)))); 
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2), (From.y() + ((To.y() - From.y()) / 2)) + 10);
             } else if ((x1 == x2) && (y1 > y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_2))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_2))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_2))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_2))));
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 5, (From.y() + ((To.y() - From.y()) / 2)));
+                q = 8;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI/6))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI/6))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI/6))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI/6))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 10, (From.y() + ((To.y() - From.y()) / 2)));
             } else if ((x1 == x2) && (y1 < y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_2))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_2))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_2))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_2))));
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2)));
+                q = 7;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(2*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(2*M_PI/3))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(4*M_PI/3))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(4*M_PI/3))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 10, (From.y() + ((To.y() - From.y()) / 2)));
             } else if ((x1 < x2) && (y1 < y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_4))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(5*M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(5*M_PI_4))));
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 5, (From.y() + ((To.y() - From.y()) / 2)) - 5);
+                q = 3;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(11*M_PI/6))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(11*M_PI/6))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI/3))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI/3))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 10, (From.y() + ((To.y() - From.y()) / 2)) - 10);
             } else if ((x1 < x2) && (y1 > y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI_4))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_4))));
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2)) - 5);
+                q = 2;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-2*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-2*M_PI/3))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(7*M_PI/6))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(7*M_PI/6))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 10, (From.y() + ((To.y() - From.y()) / 2)) - 10);
             } else if ((x1 > x2) && (y1 < y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(3*M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(3*M_PI_4))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI_4))));
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 5, (From.y() + ((To.y() - From.y()) / 2) + 5));
+                q = 4;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-4*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-4*M_PI/3))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI/6))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI/6))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) + 10, (From.y() + ((To.y() - From.y()) / 2) + 10));
             } else if ((x1 > x2) && (y1 > y2)) {
-                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(5*M_PI_4))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(5*M_PI_4))));
-                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI_4))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI_4))));
-                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2) + 5));
+                q = 1;
+                From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(4*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(4*M_PI/3))));
+                To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(2*M_PI/3))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(2*M_PI/3))));
+                control = QPointF(From.x() + ((To.x() - From.x()) / 2) - 10, (From.y() + ((To.y() - From.y()) / 2) + 10));
             }
             path.moveTo(From);
             path.quadTo(control, To);
-            arrowheads.append(createArrowhead(To, From));
+            arrowheads.append(createArrowhead(To, From, q));
             //painter.drawPolygon(arrowHead);
         }
     }
