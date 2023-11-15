@@ -58,6 +58,11 @@ DFADialog::~DFADialog()
 
 std::string startStateName; //use as starting point when getting transition input
 
+/**
+ * @brief This function is called when a state is entered in the DFA dialog.
+ *  It checks if a start state already exists and if not, adds the state to the DFA.
+ *  If the state is a start state, it sets the startExists flag and updates the startStateName variable.
+ */
 void DFADialog::onStateEnter() {
     if (start && startExists) {
         ui->startStateErrorLbl->setText("You already have a start state.");
@@ -138,6 +143,16 @@ int symbolIndex = 0; //use for dfa.getSymbol()
 int stateIndex = 0; //use for connected states
 bool reachedMax = false; // when max transitions, no more should be entered
 
+/**
+ * @brief Handles the event when the user enters a transition in the DFA dialog.
+ * 
+ * If the user has entered every possible transition, a message is displayed and the function returns.
+ * Otherwise, the function retrieves the current state, the symbol, and the destination state from the UI.
+ * If the destination state is not already connected to the current state, it is added to the list of connected states.
+ * Then, the function adds the transition to the graph, the set of transitions, and the DFA.
+ * If the current state has reached the maximum number of transitions, the graph is printed to the UI.
+ * Finally, the UI is updated with the new current state and symbol.
+ */
 void DFADialog::onTransEnter() {
     if (reachedMax) {
         ui->transErrorLbl->setText("You have entered every possible transition");
@@ -185,7 +200,14 @@ void DFADialog::onTransEnter() {
     ui->OnSymbolLbl->setText(QString::fromStdString(dfa.getSymbol(symbolIndex)));
 }
 
-//quadrant refers to the quadrant of the circle that the endpoint connects to
+
+/**
+ * @brief The QPolygonF class defines a polygon as a series of points.
+ * 
+ * The QPolygonF class provides a vector of QPointF points, which can be used to define a polygon.
+ * 
+ * @see QPointF
+ */
 QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt, int quadrant) {
     QPolygonF arrowHead;
 
@@ -256,6 +278,17 @@ QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt, int quad
     return arrowHead;
 }
 
+/**
+ * @brief Displays the DFA graph in the QGraphicsScene.
+ * 
+ * If the build is not finished, an error label is displayed.
+ * For each state in connected states, add line and arrow, saving location of each state that is currently part of the graph.
+ * For every transition coming out of a state, alter angle of line by a factor determined by the numSymbols in input alphabet.
+ * The position of the states will differ depending on how many states there are.
+ * i.e if there are 4 states it would be a diamond, if there are 5, a pentagram.
+ * 
+ * @return void
+ */
 void DFADialog::displayGraph() {
     //if build not finished, error label
     QGraphicsScene *scene = ui->machineView->scene();
@@ -264,11 +297,6 @@ void DFADialog::displayGraph() {
         ui->machineView->setScene(scene);
     }
 
-    //for each state in connected states, add line and arrow, saving location of each state that is currently part of the graph
-    //for every transition coming out of a state, alter angle of line by a factor determined by the numSymbols in input alphabet
-    //The position of the states will differ depending on how many states there are
-    //i.e if there are 4 states it would be a diamond, if there are 5, a pentagram.
-    //I might eventually come up with a more sophisticated algorithm but for now this will do.
     std::unordered_map<std::string, QPointF> stateLocations;
     QPointF From(0, 0);
     QPointF control(0, 0);
@@ -379,19 +407,28 @@ void DFADialog::displayGraph() {
             x2 = stateLocations[edge.first].x();
             y2 = stateLocations[edge.first].y();
             label = QString::fromStdString(edge.second);
+            int xlbl = 5;
+            int ylbl = 7;
             qDebug() << edge.second;
             
             //if state a straight right of state b
             if ((x1 == x2) && (y1 == y2)) {
-                /*if (y1 > 0) {
+
+                if (y1 >= 0) {
+                    q = 7;
                     From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(4*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(4*M_PI/3))));
-                    To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(10*M_PI/6))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(10*M_PI/6))));      
-                    control = QPointF(From.x(), From.y() - 10);          
+                    To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(10*M_PI/6))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(10*M_PI/6))) - 2);      
+                    control = QPointF(From.x(), From.y() - 50);    
+                    ylbl = 20;   
+                    xlbl = 0;   
                 } else {
+                    q = 8;
                     From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(2*M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(2*M_PI/3))));
-                    To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI/3))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI/3))));      
-                    control = QPointF(From.x(), From.y() + 10);   
-                }*/
+                    To = QPointF((x2 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(M_PI/3))), (y2 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(M_PI/3))) + 2);      
+                    control = QPointF(From.x(), From.y() + 50);   
+                    ylbl = -20;
+                    xlbl = 0;
+                }
             } else if ((x1 < x2) && (y1 == y2)) {
                 q = 6;
                 From = QPointF((x1 + ellipseSize.x() / 2) + ((ellipseSize.x() / 2) * (cos(-M_PI/3))), (y1 + ellipseSize.y() / 2) + ((ellipseSize.y() / 2) * (sin(-M_PI/3))));
@@ -436,7 +473,7 @@ void DFADialog::displayGraph() {
             path.moveTo(From);
             path.quadTo(control, To);
             arrowheads.append(createArrowhead(To, From, q));
-            textItems.append({label, QPointF(From.x() + ((To.x() - From.x()) / 2) - 5, (From.y() + ((To.y() - From.y()) / 2) - 7))});
+            textItems.append({label, QPointF(From.x() + ((To.x() - From.x()) / 2) - xlbl, (From.y() + ((To.y() - From.y()) / 2) - ylbl))});
             //painter.drawPolygon(arrowHead);
         }
     }
