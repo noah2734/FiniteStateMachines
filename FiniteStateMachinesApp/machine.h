@@ -65,6 +65,7 @@ class DFA {
 private:
     int numStates;
     int numSymbols;
+    std::string startStateName;
     std::unordered_map<std::string, State> states;
     std::vector<std::string> symbols;
     std::unordered_map<std::pair<std::string, std::string>, Transition, PairHash> transitions;
@@ -76,6 +77,10 @@ public:
     }
 
     void addState(std::string name, bool isStart, bool isAccept);
+
+    void setStartState(std::string name) { startStateName = name; }
+
+    std::string getStartState() { return startStateName; }
 
     State getState(std::string);
 
@@ -94,6 +99,8 @@ public:
     void addTransition(std::string from, std::string on, std::string to);
 
     Transition getTransition(std::pair<std::string, std::string>);
+
+    bool accepts(std::string input);
 };
 
 class NFA {

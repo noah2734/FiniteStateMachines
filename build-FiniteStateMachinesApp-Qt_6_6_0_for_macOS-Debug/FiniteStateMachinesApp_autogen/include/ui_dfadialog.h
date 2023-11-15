@@ -51,8 +51,8 @@ public:
     QPushButton *testBtn;
     QLabel *numSymLbl;
     QLabel *symLbl;
-    QLabel *stateCounterLbl;
-    QLabel *statesLbl;
+    QLabel *testInputLblesultLblCounterLbl;
+    QLabel *testResultLblnputLblsLbl;
 
     void setupUi(QDialog *DFADialog)
     {
@@ -297,14 +297,14 @@ public:
         stateCounterLbl->setGeometry(QRect(300, 30, 31, 16));
         statesLbl = new QLabel(DFADialog);
         statesLbl->setObjectName("statesLbl");
-        statesLbl->setGeometry(QRect(220, 30, 74, 16));
+        testInputLblesultLblsLbl->setGeometry(QRect(220, 30, 74, 16));
 
-        retranslateUi(DFADialog);
+       testInputestInputLblsultestResultLblnslateUi(DFADialog);
 
-        testBtn->setDefault(false);
+        testResultLblnputLbltn->setDefault(false);
 
 
-        QMetaObject::connectSlotsByName(DFADialog);
+      testResultestResultLblputestInputLblaObject::connectSlotsByName(DFADialog);
     } // setupUi
 
     void retranslateUi(QDialog *DFADialog)
@@ -338,10 +338,10 @@ public:
 
 };
 
-namespace Ui {
+nametestInputLblesultLbl Ui {
     class DFADialog: public Ui_DFADialog {};
 } // namespace Ui
 
-QT_END_NAMESPACE
+QT_END_testResultLblnputLblPACE
 
 #endif // UI_DFADIALOG_H

@@ -74,6 +74,7 @@ void DFADialog::onStateEnter() {
             startStateName = name;
 
             dfa.addState(name, start, acc);
+            dfa.setStartState(name);
             connectedStates.push_back(dfa.getState(name).name);
 
             //firstStateName = connectedStates[0];
@@ -510,11 +511,23 @@ void DFADialog::displayGraph() {
     ui->machineView->update();
 }
 
+void runMachine(std::string input) {
+
+}
 
 void DFADialog::onBuildEnter() {
     displayGraph();
 }
 
 void DFADialog::onTestEnter() {
-
+    std::string input = ui->testLine->text().toStdString();
+    ui->testInputLbl->setAlignment(Qt::AlignRight);
+    ui->testInputLbl->setText(QString::fromStdString(input));
+    if (dfa.accepts(input)) {
+        ui->testResultLbl->setStyleSheet("color: green;");
+        ui->testResultLbl->setText("ACCEPTED");
+    } else {
+        ui->testResultLbl->setStyleSheet("color: red;");
+        ui->testResultLbl->setText("REJECTED");
+    }
 }

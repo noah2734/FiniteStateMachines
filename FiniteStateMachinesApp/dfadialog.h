@@ -27,13 +27,10 @@ private slots:
     void updateStart(int);
 
     void updateAccept(int);
-
     //for symbols
     void onSymbEnter();
-
     //for transitions
     void onTransEnter();
-    \
     //for building/testing
     void onBuildEnter();
 

@@ -33,7 +33,7 @@ bool DFA::stateExists(std::string name) {
 void DFA::addTransition(std::string from, std::string on, std::string to) {
     std::pair<std::string, std::string> key;
     key.first = from;
-    key.second = to;
+    key.second = on;
     transitions[key] = Transition(from, on, to);
 }
 
@@ -67,6 +67,27 @@ void Graph::addEdge(Vertex v, Vertex w, Label label) {
 
 std::list<Graph::Edge> Graph::getEdges(Vertex v) {
     return adj[v];
+}
+
+bool DFA::accepts(std::string input) {
+    std::string currentState = startStateName;
+    std::pair<std::string, std::string> key;
+
+    for (int i = 0; i < input.size(); i++) {
+        key.first = currentState;
+        key.second = input[i];
+
+        auto it = transitions.find(key);
+        if (it != transitions.end()) {
+            currentState = it->second.to;
+        } else {
+            return false;
+        }
+    }
+    if (states[currentState].isAccept) {
+        return true;
+    }
+    return false;
 }
 
 std::string Graph::toString() {
