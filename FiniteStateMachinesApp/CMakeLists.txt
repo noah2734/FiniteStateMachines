@@ -27,6 +27,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         machine.h
         dfadialog.h dfadialog.cpp dfadialog.ui
         machine.cpp
+        nfadialog.h nfadialog.cpp nfadialog.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET FiniteStateMachinesApp APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

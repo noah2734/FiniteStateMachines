@@ -1,5 +1,4 @@
 #include "dfadialog.h"
-#include "qpainterpath.h"
 #include "ui_dfadialog.h"
 #include "machine.h"
 

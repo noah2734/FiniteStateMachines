@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp" "CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o" "gcc" "CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o.d"
   "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/main.cpp" "CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o" "gcc" "CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o.d"
   "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.cpp" "CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o" "gcc" "CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o.d"
+  "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp" "CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o" "gcc" "CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

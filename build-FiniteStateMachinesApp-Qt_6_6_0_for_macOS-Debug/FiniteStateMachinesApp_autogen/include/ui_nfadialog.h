@@ -1,46 +1,34 @@
 /********************************************************************************
-** Form generated from reading UI file 'dfadialog.ui'
+** Form generated from reading UI file 'nfadialog.ui'
 **
 ** Created by: Qt User Interface Compiler version 6.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_DFADIALOG_H
-#define UI_DFADIALOG_H
+#ifndef UI_NFADIALOG_H
+#define UI_NFADIALOG_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_DFADialog
+class Ui_NFADialog
 {
 public:
-    QLineEdit *stateNameLine;
     QCheckBox *StartCheckBox;
     QCheckBox *AcceptCheckBox;
-    QPushButton *EnterStateBtn;
-    QLineEdit *symbolLine;
-    QPushButton *EnterSymBtn;
-    QFrame *frame_3;
-    QLabel *StateLbl1;
-    QLabel *currStateLbl;
-    QLabel *SymbolLbl;
-    QLabel *OnSymbolLbl;
-    QLabel *goesToLbl;
-    QLineEdit *gotoLine;
-    QPushButton *EnterTransBtn;
-    QLabel *numTransLbl;
-    QLabel *numForTransLbl;
     QLabel *startStateErrorLbl;
     QLabel *transErrorLbl;
     QTextEdit *textEdit;
@@ -55,12 +43,31 @@ public:
     QLabel *statesLbl;
     QLabel *testInputLbl;
     QLabel *testResultLbl;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *EnterStateBtn;
+    QLineEdit *stateNameLine;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *EnterSymBtn;
+    QLineEdit *symbolLine;
+    QWidget *horizontalLayoutWidget_3;
+    QHBoxLayout *horizontalLayout_3;
+    QComboBox *FromStateCbox;
+    QLabel *goesToLbl;
+    QComboBox *ToStateCbox;
+    QLabel *enterSymbolsLbl;
+    QLabel *enterStatesLbl;
+    QLabel *enterTransLbl;
+    QPushButton *submitTransBtn;
+    QLabel *TotalTransLbl;
+    QLabel *numTransLbl;
 
-    void setupUi(QDialog *DFADialog)
+    void setupUi(QDialog *NFADialog)
     {
-        if (DFADialog->objectName().isEmpty())
-            DFADialog->setObjectName("DFADialog");
-        DFADialog->resize(640, 700);
+        if (NFADialog->objectName().isEmpty())
+            NFADialog->setObjectName("NFADialog");
+        NFADialog->resize(640, 700);
         QPalette palette;
         QBrush brush(QColor(0, 0, 0, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -138,82 +145,38 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush10);
 #endif
-        DFADialog->setPalette(palette);
-        stateNameLine = new QLineEdit(DFADialog);
-        stateNameLine->setObjectName("stateNameLine");
-        stateNameLine->setGeometry(QRect(90, 20, 113, 31));
-        StartCheckBox = new QCheckBox(DFADialog);
+        NFADialog->setPalette(palette);
+        StartCheckBox = new QCheckBox(NFADialog);
         StartCheckBox->setObjectName("StartCheckBox");
-        StartCheckBox->setGeometry(QRect(10, 60, 85, 20));
-        AcceptCheckBox = new QCheckBox(DFADialog);
+        StartCheckBox->setGeometry(QRect(10, 70, 85, 20));
+        AcceptCheckBox = new QCheckBox(NFADialog);
         AcceptCheckBox->setObjectName("AcceptCheckBox");
-        AcceptCheckBox->setGeometry(QRect(110, 60, 111, 20));
-        EnterStateBtn = new QPushButton(DFADialog);
-        EnterStateBtn->setObjectName("EnterStateBtn");
-        EnterStateBtn->setGeometry(QRect(20, 20, 61, 32));
-        symbolLine = new QLineEdit(DFADialog);
-        symbolLine->setObjectName("symbolLine");
-        symbolLine->setGeometry(QRect(90, 110, 61, 31));
-        EnterSymBtn = new QPushButton(DFADialog);
-        EnterSymBtn->setObjectName("EnterSymBtn");
-        EnterSymBtn->setGeometry(QRect(20, 110, 61, 32));
-        frame_3 = new QFrame(DFADialog);
-        frame_3->setObjectName("frame_3");
-        frame_3->setGeometry(QRect(20, 170, 321, 101));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        StateLbl1 = new QLabel(frame_3);
-        StateLbl1->setObjectName("StateLbl1");
-        StateLbl1->setGeometry(QRect(10, 10, 41, 16));
-        currStateLbl = new QLabel(frame_3);
-        currStateLbl->setObjectName("currStateLbl");
-        currStateLbl->setGeometry(QRect(50, 10, 101, 16));
-        SymbolLbl = new QLabel(frame_3);
-        SymbolLbl->setObjectName("SymbolLbl");
-        SymbolLbl->setGeometry(QRect(10, 40, 71, 16));
-        OnSymbolLbl = new QLabel(frame_3);
-        OnSymbolLbl->setObjectName("OnSymbolLbl");
-        OnSymbolLbl->setGeometry(QRect(90, 40, 41, 16));
-        goesToLbl = new QLabel(frame_3);
-        goesToLbl->setObjectName("goesToLbl");
-        goesToLbl->setGeometry(QRect(10, 70, 58, 16));
-        gotoLine = new QLineEdit(frame_3);
-        gotoLine->setObjectName("gotoLine");
-        gotoLine->setGeometry(QRect(70, 60, 113, 31));
-        EnterTransBtn = new QPushButton(frame_3);
-        EnterTransBtn->setObjectName("EnterTransBtn");
-        EnterTransBtn->setGeometry(QRect(200, 60, 61, 32));
-        numTransLbl = new QLabel(frame_3);
-        numTransLbl->setObjectName("numTransLbl");
-        numTransLbl->setGeometry(QRect(150, 10, 111, 16));
-        numForTransLbl = new QLabel(frame_3);
-        numForTransLbl->setObjectName("numForTransLbl");
-        numForTransLbl->setGeometry(QRect(260, 10, 31, 16));
-        startStateErrorLbl = new QLabel(DFADialog);
+        AcceptCheckBox->setGeometry(QRect(110, 70, 111, 20));
+        startStateErrorLbl = new QLabel(NFADialog);
         startStateErrorLbl->setObjectName("startStateErrorLbl");
-        startStateErrorLbl->setGeometry(QRect(30, 80, 291, 31));
+        startStateErrorLbl->setGeometry(QRect(10, 90, 291, 21));
         QFont font;
         font.setFamilies({QString::fromUtf8("Academy Engraved LET")});
         startStateErrorLbl->setFont(font);
-        transErrorLbl = new QLabel(DFADialog);
+        transErrorLbl = new QLabel(NFADialog);
         transErrorLbl->setObjectName("transErrorLbl");
-        transErrorLbl->setGeometry(QRect(27, 270, 331, 20));
-        textEdit = new QTextEdit(DFADialog);
+        transErrorLbl->setGeometry(QRect(10, 280, 331, 20));
+        textEdit = new QTextEdit(NFADialog);
         textEdit->setObjectName("textEdit");
-        textEdit->setGeometry(QRect(373, 63, 221, 151));
-        buildBtn = new QPushButton(DFADialog);
+        textEdit->setGeometry(QRect(380, 80, 221, 151));
+        buildBtn = new QPushButton(NFADialog);
         buildBtn->setObjectName("buildBtn");
-        buildBtn->setGeometry(QRect(440, 240, 75, 24));
-        buildErrLbl = new QLabel(DFADialog);
+        buildBtn->setGeometry(QRect(460, 240, 75, 24));
+        buildErrLbl = new QLabel(NFADialog);
         buildErrLbl->setObjectName("buildErrLbl");
         buildErrLbl->setGeometry(QRect(360, 270, 261, 20));
-        machineView = new QGraphicsView(DFADialog);
+        machineView = new QGraphicsView(NFADialog);
         machineView->setObjectName("machineView");
         machineView->setGeometry(QRect(35, 340, 500, 350));
-        testLine = new QLineEdit(DFADialog);
+        testLine = new QLineEdit(NFADialog);
         testLine->setObjectName("testLine");
         testLine->setGeometry(QRect(40, 301, 113, 31));
-        testBtn = new QPushButton(DFADialog);
+        testBtn = new QPushButton(NFADialog);
         testBtn->setObjectName("testBtn");
         testBtn->setGeometry(QRect(170, 300, 75, 31));
         QPalette palette1;
@@ -288,70 +251,139 @@ public:
         testBtn->setPalette(palette1);
         testBtn->setAutoDefault(true);
         testBtn->setFlat(false);
-        numSymLbl = new QLabel(DFADialog);
+        numSymLbl = new QLabel(NFADialog);
         numSymLbl->setObjectName("numSymLbl");
-        numSymLbl->setGeometry(QRect(250, 120, 31, 16));
-        symLbl = new QLabel(DFADialog);
+        numSymLbl->setGeometry(QRect(590, 30, 31, 16));
+        symLbl = new QLabel(NFADialog);
         symLbl->setObjectName("symLbl");
-        symLbl->setGeometry(QRect(160, 120, 91, 16));
-        stateCounterLbl = new QLabel(DFADialog);
+        symLbl->setGeometry(QRect(480, 30, 91, 16));
+        stateCounterLbl = new QLabel(NFADialog);
         stateCounterLbl->setObjectName("stateCounterLbl");
-        stateCounterLbl->setGeometry(QRect(300, 30, 31, 16));
-        statesLbl = new QLabel(DFADialog);
+        stateCounterLbl->setGeometry(QRect(590, 10, 31, 16));
+        statesLbl = new QLabel(NFADialog);
         statesLbl->setObjectName("statesLbl");
-        statesLbl->setGeometry(QRect(220, 30, 74, 16));
-        testInputLbl = new QLabel(DFADialog);
+        statesLbl->setGeometry(QRect(480, 10, 74, 16));
+        testInputLbl = new QLabel(NFADialog);
         testInputLbl->setObjectName("testInputLbl");
         testInputLbl->setGeometry(QRect(270, 310, 161, 16));
-        testResultLbl = new QLabel(DFADialog);
+        testResultLbl = new QLabel(NFADialog);
         testResultLbl->setObjectName("testResultLbl");
         testResultLbl->setGeometry(QRect(450, 310, 81, 16));
+        horizontalLayoutWidget = new QWidget(NFADialog);
+        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
+        horizontalLayoutWidget->setGeometry(QRect(10, 30, 201, 41));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        EnterStateBtn = new QPushButton(horizontalLayoutWidget);
+        EnterStateBtn->setObjectName("EnterStateBtn");
 
-        retranslateUi(DFADialog);
+        horizontalLayout->addWidget(EnterStateBtn);
+
+        stateNameLine = new QLineEdit(horizontalLayoutWidget);
+        stateNameLine->setObjectName("stateNameLine");
+
+        horizontalLayout->addWidget(stateNameLine);
+
+        horizontalLayoutWidget_2 = new QWidget(NFADialog);
+        horizontalLayoutWidget_2->setObjectName("horizontalLayoutWidget_2");
+        horizontalLayoutWidget_2->setGeometry(QRect(10, 140, 191, 41));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        EnterSymBtn = new QPushButton(horizontalLayoutWidget_2);
+        EnterSymBtn->setObjectName("EnterSymBtn");
+
+        horizontalLayout_2->addWidget(EnterSymBtn);
+
+        symbolLine = new QLineEdit(horizontalLayoutWidget_2);
+        symbolLine->setObjectName("symbolLine");
+
+        horizontalLayout_2->addWidget(symbolLine);
+
+        horizontalLayoutWidget_3 = new QWidget(NFADialog);
+        horizontalLayoutWidget_3->setObjectName("horizontalLayoutWidget_3");
+        horizontalLayoutWidget_3->setGeometry(QRect(10, 220, 276, 32));
+        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        FromStateCbox = new QComboBox(horizontalLayoutWidget_3);
+        FromStateCbox->setObjectName("FromStateCbox");
+
+        horizontalLayout_3->addWidget(FromStateCbox);
+
+        goesToLbl = new QLabel(horizontalLayoutWidget_3);
+        goesToLbl->setObjectName("goesToLbl");
+
+        horizontalLayout_3->addWidget(goesToLbl);
+
+        ToStateCbox = new QComboBox(horizontalLayoutWidget_3);
+        ToStateCbox->setObjectName("ToStateCbox");
+
+        horizontalLayout_3->addWidget(ToStateCbox);
+
+        enterSymbolsLbl = new QLabel(NFADialog);
+        enterSymbolsLbl->setObjectName("enterSymbolsLbl");
+        enterSymbolsLbl->setGeometry(QRect(10, 120, 91, 20));
+        enterStatesLbl = new QLabel(NFADialog);
+        enterStatesLbl->setObjectName("enterStatesLbl");
+        enterStatesLbl->setGeometry(QRect(10, 10, 91, 16));
+        enterTransLbl = new QLabel(NFADialog);
+        enterTransLbl->setObjectName("enterTransLbl");
+        enterTransLbl->setGeometry(QRect(10, 200, 111, 16));
+        submitTransBtn = new QPushButton(NFADialog);
+        submitTransBtn->setObjectName("submitTransBtn");
+        submitTransBtn->setGeometry(QRect(100, 250, 100, 32));
+        TotalTransLbl = new QLabel(NFADialog);
+        TotalTransLbl->setObjectName("TotalTransLbl");
+        TotalTransLbl->setGeometry(QRect(480, 50, 111, 16));
+        numTransLbl = new QLabel(NFADialog);
+        numTransLbl->setObjectName("numTransLbl");
+        numTransLbl->setGeometry(QRect(590, 50, 31, 16));
+
+        retranslateUi(NFADialog);
 
         testBtn->setDefault(false);
 
 
-        QMetaObject::connectSlotsByName(DFADialog);
+        QMetaObject::connectSlotsByName(NFADialog);
     } // setupUi
 
-    void retranslateUi(QDialog *DFADialog)
+    void retranslateUi(QDialog *NFADialog)
     {
-        DFADialog->setWindowTitle(QCoreApplication::translate("DFADialog", "Dialog", nullptr));
-        stateNameLine->setText(QString());
-        StartCheckBox->setText(QCoreApplication::translate("DFADialog", "Start State?", nullptr));
-        AcceptCheckBox->setText(QCoreApplication::translate("DFADialog", "Accept State", nullptr));
-        EnterStateBtn->setText(QCoreApplication::translate("DFADialog", "Enter", nullptr));
-        symbolLine->setText(QString());
-        EnterSymBtn->setText(QCoreApplication::translate("DFADialog", "Enter", nullptr));
-        StateLbl1->setText(QCoreApplication::translate("DFADialog", "State: ", nullptr));
-        currStateLbl->setText(QString());
-        SymbolLbl->setText(QCoreApplication::translate("DFADialog", "On Symbol: ", nullptr));
-        OnSymbolLbl->setText(QString());
-        goesToLbl->setText(QCoreApplication::translate("DFADialog", "Goes To:", nullptr));
-        gotoLine->setText(QString());
-        EnterTransBtn->setText(QCoreApplication::translate("DFADialog", "Enter", nullptr));
-        numTransLbl->setText(QCoreApplication::translate("DFADialog", "Total Transitions: ", nullptr));
-        numForTransLbl->setText(QCoreApplication::translate("DFADialog", "0", nullptr));
+        NFADialog->setWindowTitle(QCoreApplication::translate("NFADialog", "Dialog", nullptr));
+        StartCheckBox->setText(QCoreApplication::translate("NFADialog", "Start State?", nullptr));
+        AcceptCheckBox->setText(QCoreApplication::translate("NFADialog", "Accept State", nullptr));
         startStateErrorLbl->setText(QString());
         transErrorLbl->setText(QString());
-        buildBtn->setText(QCoreApplication::translate("DFADialog", "Build", nullptr));
+        buildBtn->setText(QCoreApplication::translate("NFADialog", "Build", nullptr));
         buildErrLbl->setText(QString());
-        testBtn->setText(QCoreApplication::translate("DFADialog", "Test", nullptr));
-        numSymLbl->setText(QCoreApplication::translate("DFADialog", "0", nullptr));
-        symLbl->setText(QCoreApplication::translate("DFADialog", "Total symbols:", nullptr));
-        stateCounterLbl->setText(QCoreApplication::translate("DFADialog", "0", nullptr));
-        statesLbl->setText(QCoreApplication::translate("DFADialog", "Total States:", nullptr));
+        testBtn->setText(QCoreApplication::translate("NFADialog", "Test", nullptr));
+        numSymLbl->setText(QCoreApplication::translate("NFADialog", "0", nullptr));
+        symLbl->setText(QCoreApplication::translate("NFADialog", "Total Symbols:", nullptr));
+        stateCounterLbl->setText(QCoreApplication::translate("NFADialog", "0", nullptr));
+        statesLbl->setText(QCoreApplication::translate("NFADialog", "Total States:", nullptr));
         testInputLbl->setText(QString());
         testResultLbl->setText(QString());
+        EnterStateBtn->setText(QCoreApplication::translate("NFADialog", "Enter", nullptr));
+        stateNameLine->setText(QString());
+        EnterSymBtn->setText(QCoreApplication::translate("NFADialog", "Enter", nullptr));
+        symbolLine->setText(QString());
+        goesToLbl->setText(QCoreApplication::translate("NFADialog", "Goes To", nullptr));
+        enterSymbolsLbl->setText(QCoreApplication::translate("NFADialog", "Enter Symbols: ", nullptr));
+        enterStatesLbl->setText(QCoreApplication::translate("NFADialog", "Enter States: ", nullptr));
+        enterTransLbl->setText(QCoreApplication::translate("NFADialog", "Enter Transitions: ", nullptr));
+        submitTransBtn->setText(QCoreApplication::translate("NFADialog", "Submit", nullptr));
+        TotalTransLbl->setText(QCoreApplication::translate("NFADialog", "Total Transitions: ", nullptr));
+        numTransLbl->setText(QCoreApplication::translate("NFADialog", "0", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class DFADialog: public Ui_DFADialog {};
+    class NFADialog: public Ui_NFADialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_DFADIALOG_H
+#endif // UI_NFADIALOG_H

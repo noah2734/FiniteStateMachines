@@ -625,6 +625,7 @@
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdarg.h \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.h \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20memory.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20type_traits.h \

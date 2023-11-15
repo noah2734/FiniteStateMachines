@@ -28,5 +28,11 @@
   "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp",
   "file": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp",
   "output": "CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o"
+},
+{
+  "directory": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers -iframework /Users/noahmcclelland/Qt/6.6.0/macos/lib -isystem /Users/noahmcclelland/Qt/6.6.0/macos/mkspecs/macx-clang -isystem /Users/noahmcclelland/Qt/6.6.0/macos/include -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers -isystem /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp",
+  "file": "/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp",
+  "output": "CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o"
 }
 ]

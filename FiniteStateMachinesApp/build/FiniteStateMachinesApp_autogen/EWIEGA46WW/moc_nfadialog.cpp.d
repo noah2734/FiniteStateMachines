@@ -1,5 +1,5 @@
-/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build-FiniteStateMachinesApp-Qt_6_6_0_for_macOS-Debug/FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_mainwindow.cpp: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/build-FiniteStateMachinesApp-Qt_6_6_0_for_macOS-Debug/FiniteStateMachinesApp_autogen/moc_predefs.h \
+/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_nfadialog.cpp: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.h \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/moc_predefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/AvailabilityInternal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/AvailabilityMacros.h \
@@ -624,8 +624,6 @@
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/qos.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdarg.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20memory.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20type_traits.h \
@@ -739,8 +737,6 @@
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/QPainter \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/QPolygonF \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qaction.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
@@ -753,30 +749,21 @@
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qimage.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpainter.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpainterpath.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpen.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qregion.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgb.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextoption.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QDialog \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsItem \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsitem.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsglobal.h \

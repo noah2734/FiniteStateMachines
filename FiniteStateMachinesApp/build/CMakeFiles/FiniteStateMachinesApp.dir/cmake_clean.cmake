@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o.d"
   "CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o"
   "CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o.d"
+  "CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o"
+  "CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o.d"
   "FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp"
   "FiniteStateMachinesApp.pdb"
 )

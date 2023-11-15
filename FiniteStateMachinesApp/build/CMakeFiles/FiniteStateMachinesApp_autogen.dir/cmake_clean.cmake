@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/FiniteStateMachinesApp_autogen"
   "FiniteStateMachinesApp_autogen/include/ui_dfadialog.h"
   "FiniteStateMachinesApp_autogen/include/ui_mainwindow.h"
+  "FiniteStateMachinesApp_autogen/include/ui_nfadialog.h"
   "FiniteStateMachinesApp_autogen/mocs_compilation.cpp"
 )
 

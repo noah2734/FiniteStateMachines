@@ -68,5 +68,10 @@ void MainWindow::onBuildMachineButton() {
         dialog.exec();
 
     }
+    if (mode == NFA) {
+        qDebug() << "Open NFA Window";
+        NFADialog dialog(this);
+        dialog.exec();
+    }
 }
 
