@@ -5,6 +5,7 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QPolygonF>
+#include "machine.h"
 
 namespace Ui {
 class DFADialog;
@@ -17,6 +18,8 @@ class DFADialog : public QDialog
 public:
     explicit DFADialog(QWidget *parent = nullptr);
     ~DFADialog();
+
+    void displayGraph(Graph *graph);
 
 private:
     Ui::DFADialog *ui;
@@ -33,8 +36,6 @@ private slots:
     void onTransEnter();
     //for building/testing
     void onBuildEnter();
-
-    void displayGraph();
 
     void onTestEnter();
 

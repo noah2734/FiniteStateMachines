@@ -2,6 +2,7 @@
 #define NFADIALOG_H
 
 #include <QDialog>
+#include "machine.h"
 
 namespace Ui {
 class NFADialog;
@@ -22,9 +23,13 @@ private slots:
     void updateStart(int);
     void updateAccept(int);
     void onSymbEnter();
-    void onTransEnter();
+    void onTransSubmit();
+    
+    void displayGraph(Graph *graph);
     void onBuildEnter();
     void onTestEnter();
+
+    void compute(std::string input);
 };
 
 #endif // NFADIALOG_H

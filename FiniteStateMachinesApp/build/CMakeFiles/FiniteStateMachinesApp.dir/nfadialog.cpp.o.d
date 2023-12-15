@@ -842,6 +842,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o: \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qsizepolicy.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qcursor.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qbitmap.h \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.h \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/include/ui_nfadialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/QVariant \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QApplication \
@@ -900,4 +901,10 @@ CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o: \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QTextEdit \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QWidget
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qpainterpath.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPainter \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPolygonF

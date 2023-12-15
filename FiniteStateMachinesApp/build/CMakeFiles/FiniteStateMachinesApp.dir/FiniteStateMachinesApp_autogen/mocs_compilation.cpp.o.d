@@ -851,6 +851,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compil
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qtextoption.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qpen.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPolygonF \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/../../../machine.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qtmochelpers.h \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_mainwindow.cpp \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/../../../mainwindow.h \

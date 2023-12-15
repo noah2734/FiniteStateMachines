@@ -854,6 +854,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o: \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qtextoption.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qpen.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPolygonF \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.h \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QApplication \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qapplication.h \

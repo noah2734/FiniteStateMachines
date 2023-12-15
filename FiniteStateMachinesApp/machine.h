@@ -113,13 +113,13 @@ class NFA {
     std::unordered_map<std::pair<std::string, std::string>, Transition, PairHash> transitions;
 public:
 
-    DFA() {
+    NFA() {
         numStates = 0;
         numSymbols = 0;
         symbols.push_back("#"); // # in place of epsilon
     }
 
-    void addState(std::string name, bool isStart, bool isAccept);
+    void addState(const std::string& name, bool isStart, bool isAccept);
 
     void setStartState(std::string name) { startStateName = name; }
 
@@ -131,7 +131,7 @@ public:
 
     int getNumStates() { return numStates; }
 
-    void addSymbol(std::string);
+    void addSymbol(const std::string&);
 
     std::string getSymbol(int index);
 
@@ -139,13 +139,11 @@ public:
 
     bool emptySymbols() { return symbols.empty(); }
 
-    void addTransition(std::string from, std::string on, std::string to);
+    void addTransition(const std::string& from, const std::string& on, const std::string& to);
 
     Transition getTransition(std::pair<std::string, std::string>);
 
     bool accepts(std::string input);
-
-    DFA toDFA();
 };
 
 class PDA {

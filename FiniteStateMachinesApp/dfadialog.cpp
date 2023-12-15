@@ -289,7 +289,8 @@ QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt, int quad
  * 
  * @return void
  */
-void DFADialog::displayGraph() {
+//eventually i need to make this function accessible from nfafialogue an pda instead of copying it
+void DFADialog::displayGraph(Graph* graph) {
     //if build not finished, error label
     QGraphicsScene *scene = ui->machineView->scene();
     if (!scene) {
@@ -401,7 +402,7 @@ void DFADialog::displayGraph() {
     QVector<QPolygonF> arrowheads;
     QVector<QPair<QString, QPointF>> textItems;
     for (auto& st : connectedStates) {
-        for (auto& edge : graph.getEdges(st)) {
+        for (auto& edge : graph->getEdges(st)) {
             x1 = stateLocations[st].x();
             y1 = stateLocations[st].y();
             x2 = stateLocations[edge.first].x();
@@ -515,7 +516,7 @@ void runMachine(std::string input) {
 }
 
 void DFADialog::onBuildEnter() {
-    displayGraph();
+    displayGraph(&graph);
 }
 
 void DFADialog::onTestEnter() {

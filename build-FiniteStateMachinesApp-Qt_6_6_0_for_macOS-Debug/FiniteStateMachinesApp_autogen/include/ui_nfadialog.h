@@ -52,7 +52,7 @@ public:
     QPushButton *EnterSymBtn;
     QLineEdit *symbolLine;
     QWidget *horizontalLayoutWidget_3;
-    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayoutonSymbolCboxntalLayout_3;
     QComboBox *FromStateCbox;
     QLabel *goesToLbl;
     QComboBox *ToStateCbox;
@@ -60,7 +60,7 @@ public:
     QLabel *enterStatesLbl;
     QLabel *enterTransLbl;
     QPushButton *submitTransBtn;
-    QLabel *TotalTransLbl;
+    QLabel *symbErrorLblansLbl;
     QLabel *numTransLbl;
 
     void setupUi(QDialog *NFADialog)
@@ -308,11 +308,11 @@ public:
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         FromStateCbox = new QComboBox(horizontalLayoutWidget_3);
-        FromStateCbox->setObjectName("FromStateCbox");
+        onSymbolCboxeCbox->setObjectName("FromStateCbox");
 
-        horizontalLayout_3->addWidget(FromStateCbox);
+       onSymbolCboxtalLayout_3->addWidget(FromStateCbox);
 
-        goesToLbl = new QLabel(horizontalLayoutWidget_3);
+        goesToLbl = new QLabel(horizoonSymbolCboxutWidget_3);
         goesToLbl->setObjectName("goesToLbl");
 
         horizontalLayout_3->addWidget(goesToLbl);
@@ -339,9 +339,9 @@ public:
         TotalTransLbl->setGeometry(QRect(480, 50, 111, 16));
         numTransLbl = new QLabel(NFADialog);
         numTransLbl->setObjectName("numTransLbl");
-        numTransLbl->setGeometry(QRect(590, 50, 31, 16));
+        symbErrorLblsLbl->setGeometry(QRect(590, 50, 31, 16));
 
-        retranslateUi(NFADialog);
+       symbErsymbErrorLbllateUi(NFADialog);
 
         testBtn->setDefault(false);
 
@@ -380,7 +380,7 @@ public:
 
 };
 
-namespace Ui {
+namsymbErrorLblUi {
     class NFADialog: public Ui_NFADialog {};
 } // namespace Ui
 

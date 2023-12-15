@@ -69,6 +69,11 @@ std::list<Graph::Edge> Graph::getEdges(Vertex v) {
     return adj[v];
 }
 
+/**
+ * Determines whether the given input string is accepted by the DFA.
+ * @param input The input string to be checked.
+ * @return True if the input string is accepted, false otherwise.
+ */
 bool DFA::accepts(std::string input) {
     std::string currentState = startStateName;
     std::pair<std::string, std::string> key;
@@ -101,3 +106,43 @@ std::string Graph::toString() {
     }
     return result;
 }
+
+void NFA::addState(const std::string& name, bool isStart, bool isAccept) {
+    states[name] = State(name, isStart, isAccept);
+    numStates++;
+}
+
+State NFA::getState(const std::string name) {
+    return states[name];
+}
+
+void NFA::addSymbol(const std::string& sym) {
+    symbols.push_back(sym);
+    numSymbols++;
+}
+
+//First check if transition exists, then only add to transitions if it doesnt already exist
+//Key is pair: <From state, Label> and value associated is "To state"
+void NFA::addTransition(const std::string& from, const std::string& on, const std::string& to) {
+    std::pair<std::string, std::pair<std::string, int>> key;
+    std::pair<std::string, int> onValue;
+    onValue.first = on;
+    onValue.second = 0;
+    key.first = from;
+    key.second = onValue;
+    auto it = transitions.find(key);
+    if (it != transitions.end()) {
+        if (it->second == to) {
+            return;
+        } else {
+            key.second.second++;
+        }
+    }
+    transitions[key] = Transition(from, on, to);
+}
+
+bool NFA::accepts(std::string input) {
+    
+}
+
+
