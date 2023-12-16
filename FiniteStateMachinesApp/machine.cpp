@@ -142,7 +142,7 @@ void NFA::addTransition(const std::string& from, const std::string& on, const st
 }
 
 bool NFA::accepts(std::string input) {
-    
+    std::string currentState = startStateName;
 }
 
 
