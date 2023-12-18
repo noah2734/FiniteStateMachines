@@ -2342,9 +2342,9 @@
  mdp:/Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h
  mdp:/Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsglobal.h
  mdp:/Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qwidget.h
+/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/main.cpp
 /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp
  uic:ui_nfadialog.h
-/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/main.cpp
 /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp
  uic:ui_dfadialog.h
 /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.h

@@ -4150,6 +4150,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qvarlengtharray.h
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qversiontagging.h
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qxptype_traits.h
+ /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QAction
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPainter
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPolygonF
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qaction.h
@@ -4190,6 +4191,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMainWindow
+ /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenu
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenuBar
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QPushButton
  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QRadioButton

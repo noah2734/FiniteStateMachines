@@ -858,6 +858,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.h \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/include/./ui_mainwindow.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/QVariant \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QAction \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QApplication \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qapplication.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h \
@@ -874,9 +875,10 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qlayout.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenu \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qmenu.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenuBar \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qmenubar.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qmenu.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \

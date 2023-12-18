@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->DFARadio, &QRadioButton::toggled, this, &MainWindow::onRButtonToggled);
+  //  connect(ui->DFARadio, &QRadioButton::toggled, this, &MainWindow::onRButtonToggled);
     connect(ui->NFARadio, &QRadioButton::toggled, this, &MainWindow::onRButtonToggled);
     connect(ui->PDARadio, &QRadioButton::toggled, this, &MainWindow::onRButtonToggled);
     connect(ui->BuildButton, SIGNAL(clicked()), this, SLOT(onBuildMachineButton()));
@@ -48,11 +48,7 @@ void MainWindow::onRButtonToggled(bool checked) {
     if (!checked) {
         return;
     }
-
-    if (ui->DFARadio->isChecked()) {
-        qDebug() << "DFA mode";
-        mode = DFA;
-    } else if (ui->NFARadio->isChecked()) {
+    if (ui->NFARadio->isChecked()) {
         qDebug() << "NFA mode";
         mode = NFA;
     } else if (ui->PDARadio->isChecked()) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NFADialog</class>
- <widget class="QDialog" name="NFADialog">
+ <class>FADialog</class>
+ <widget class="QDialog" name="FADialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -516,7 +516,7 @@
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>80</y>
+     <y>100</y>
      <width>221</width>
      <height>151</height>
     </rect>
@@ -525,8 +525,8 @@
   <widget class="QPushButton" name="buildBtn">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>240</y>
+     <x>250</x>
+     <y>260</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -1272,6 +1272,19 @@
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="textEditLbl">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>76</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Transitions</string>
    </property>
   </widget>
  </widget>

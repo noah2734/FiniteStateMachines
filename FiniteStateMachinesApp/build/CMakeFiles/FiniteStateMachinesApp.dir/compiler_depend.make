@@ -4145,6 +4145,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: /Users/noahmcclelland/Pr
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qvarlengtharray.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qversiontagging.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qxptype_traits.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QAction \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPainter \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPolygonF \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qaction.h \
@@ -4185,6 +4186,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: /Users/noahmcclelland/Pr
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenu \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenuBar \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QRadioButton \
@@ -4220,6 +4222,8 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: /Users/noahmcclelland/Pr
 /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QStatusBar:
 
 /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenuBar:
+
+/Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMenu:
 
 FiniteStateMachinesApp_autogen/include/ui_mainwindow.h:
 
@@ -5576,6 +5580,8 @@ FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QPushButton:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__algorithm/replace_if.h:
+
+/Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QAction:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__type_traits/is_scalar.h:
 
