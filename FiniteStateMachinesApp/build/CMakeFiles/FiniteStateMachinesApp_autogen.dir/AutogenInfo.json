@@ -286,9 +286,9 @@
 	"HEADERS" : 
 	[
 		[
-			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.h",
+			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.h",
 			"MU",
-			"EWIEGA46WW/moc_dfadialog.cpp",
+			"EWIEGA46WW/moc_fadialog.cpp",
 			null
 		],
 		[
@@ -301,12 +301,6 @@
 			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
-			null
-		],
-		[
-			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.h",
-			"MU",
-			"EWIEGA46WW/moc_nfadialog.cpp",
 			null
 		]
 	],
@@ -369,7 +363,7 @@
 	"SOURCES" : 
 	[
 		[
-			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp",
+			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.cpp",
 			"MU",
 			null
 		],
@@ -385,11 +379,6 @@
 		],
 		[
 			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp",
 			"MU",
 			null
 		]

@@ -69,13 +69,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 67,
+				"line" : 66,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 50,
+				"line" : 49,
 				"parent" : 0
 			},
 			{
@@ -292,8 +292,7 @@
 				1,
 				2,
 				7,
-				9,
-				11
+				9
 			]
 		}
 	],
@@ -407,8 +406,7 @@
 				1,
 				2,
 				7,
-				9,
-				11
+				9
 			]
 		},
 		{
@@ -419,9 +417,7 @@
 				5,
 				6,
 				10,
-				13,
-				14,
-				15
+				11
 			]
 		},
 		{
@@ -429,8 +425,7 @@
 			"sourceIndexes" : 
 			[
 				4,
-				8,
-				12
+				8
 			]
 		}
 	],
@@ -472,18 +467,18 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "dfadialog.h",
+			"path" : "fadialog.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "dfadialog.cpp",
+			"path" : "fadialog.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "dfadialog.ui",
+			"path" : "fadialog.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
@@ -491,22 +486,6 @@
 			"compileGroupIndex" : 0,
 			"path" : "machine.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"path" : "nfadialog.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "nfadialog.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"path" : "nfadialog.ui",
-			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
@@ -517,13 +496,7 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/FiniteStateMachinesApp_autogen/include/ui_dfadialog.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 0,
-			"isGenerated" : true,
-			"path" : "build/FiniteStateMachinesApp_autogen/include/ui_nfadialog.h",
+			"path" : "build/FiniteStateMachinesApp_autogen/include/ui_fadialog.h",
 			"sourceGroupIndex" : 1
 		}
 	],

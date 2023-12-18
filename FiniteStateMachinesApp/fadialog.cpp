@@ -1,214 +1,116 @@
-#include "dfadialog.h"
-#include "ui_dfadialog.h"
-#include "machine.h"
+#include "fadialog.h"
+#include "ui_fadialog.h"
+#include "fmachine.h"
 
 #include <vector>
 #include <string>
-//#include <QPair>
-//a#include <QVector>
+#include <set>
 
-bool start = false;
-bool acc = false;
-bool startExists = false;
-int stateCounter = 0;
-int symbolCounter = 0;
-int start_id;
 
-DFA dfa;
-Graph graph;
-
-std::vector<std::string> connectedStates; // see onStateEnter and onTransEnter
-
-DFADialog::DFADialog(QWidget *parent) :
+FADialog::FADialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DFADialog)
+    ui(new Ui::FADialog)
 {
     ui->setupUi(this);
-    //for state data
-    connect(ui->EnterStateBtn, &QPushButton::clicked, this, &DFADialog::onStateEnter);
-    connect(ui->StartCheckBox, &QCheckBox::stateChanged, this, &DFADialog::updateStart);
-    connect(ui->AcceptCheckBox, &QCheckBox::stateChanged, this, &DFADialog::updateAccept);
 
     ui->stateNameLine->setPlaceholderText("State Name");
-    //for symbols
-    connect(ui->EnterSymBtn, &QPushButton::clicked, this, &DFADialog::onSymbEnter);
+
+    connect(ui->EnterStateBtn, &QPushButton::clicked, this, &FADialog::onStateEnter);
+    connect(ui->StartCheckBox, &QCheckBox::stateChanged, this, &FADialog::updateStart);
+    connect(ui->AcceptCheckBox, &QCheckBox::stateChanged, this, &FADialog::updateAccept);
 
     ui->symbolLine->setPlaceholderText("Symbol");
-    //for transitions
-    connect(ui->EnterTransBtn, &QPushButton::clicked, this, &DFADialog::onTransEnter);
 
-    ui->gotoLine->setPlaceholderText("State Name");
-    //for build/test button
-    connect(ui->buildBtn, &QPushButton::clicked, this, &DFADialog::onBuildEnter);
-    connect(ui->testBtn, &QPushButton::clicked, this, &DFADialog::onTestEnter);
-    //for error labels
+    connect(ui->EnterSymBtn, &QPushButton::clicked, this, &FADialog::onSymbEnter);
+
+    connect(ui->submitTransBtn, &QPushButton::clicked, this, &FADialog::onTransSubmit);
+
+    connect(ui->buildBtn, &QPushButton::clicked, this, &FADialog::onBuildEnter);
+
+    connect(ui->testBtn, &QPushButton::clicked, this, &FADialog::onTestEnter);
+
     ui->transErrorLbl->setStyleSheet("color: red");
 
     ui->startStateErrorLbl->setStyleSheet("color: red;");
 
     ui->buildErrLbl->setStyleSheet("color: red;");
 
+    ui->symbErrorLbl->setStyleSheet("color: red;");
+
+    ui->symbErrorLbl->setText("");
+
+    ui->onSymbolCbox->addItem(QString::fromUtf8(u8"\u03B5")); // epsilon symbol
 }
 
-DFADialog::~DFADialog()
-{
-    delete ui;
-}
-
-std::string startStateName; //use as starting point when getting transition input
-
-/**
- * @brief This function is called when a state is entered in the DFA dialog.
- *  It checks if a start state already exists and if not, adds the state to the DFA.
- *  If the state is a start state, it sets the startExists flag and updates the startStateName variable.
- */
-void DFADialog::onStateEnter() {
-    if (start && startExists) {
-        ui->startStateErrorLbl->setText("You already have a start state.");
-    } else {
-        std::string name = ui->stateNameLine->text().toStdString();
-
-        if (start) {
-            startExists = true;
-            startStateName = name;
-
-            dfa.addState(name, start, acc);
-            dfa.setStartState(name);
-            connectedStates.push_back(dfa.getState(name).name);
-
-            //firstStateName = connectedStates[0];
-            stateCounter++;
-
-            ui->stateCounterLbl->setText(QString::number(stateCounter));
-            ui->currStateLbl->setText(QString::fromStdString(name));
-            ui->stateNameLine->setText("");
-
-            qDebug() << "added START state with name " << name << " ACCEPT = " << acc;
-        } else {
-            ui->startStateErrorLbl->setText("");
-
-            stateCounter++;
-
-            ui->stateCounterLbl->setText(QString::number(stateCounter));
-
-            dfa.addState(name, start, acc);
-
-            ui->stateNameLine->setText("");
-            qDebug() << "added state with name " << name << " ACCEPT = " << acc;
-        }
-    }
-}
-
-void DFADialog::updateStart(int state) {
+void FADialog::updateStart(int state) {
     start = (state == Qt::Checked);
 }
 
-void DFADialog::updateAccept(int state) {
-    acc = (state == Qt::Checked);
+void FADialog::updateAccept(int state) {
+    accepting = (state == Qt::Checked);
 }
 
-//for symbols
-std::string firstSymbol;
-void DFADialog::onSymbEnter() {
-    if (ui->symbolLine->text().isEmpty()) {
-        qDebug() << "no entry";
+void FADialog::onStateEnter() {
+    if (start && startExists) {
+        ui->startStateErrorLbl->setText("Start state already exists");
+        return;
+    } else if (ui->stateNameLine->text().toStdString() == "") {
+        ui->startStateErrorLbl->setText("State name cannot be empty");
         return;
     }
-    if(dfa.emptySymbols()) {
-        firstSymbol = ui->symbolLine->text().toStdString();
-        ui->OnSymbolLbl->setText(ui->symbolLine->text());
+
+    ui->startStateErrorLbl->setText("");
+    std::string stateName = ui->stateNameLine->text().toStdString();
+
+    if (start) {
+        startExists = true;
+        startState = stateNum;
     }
-    ui->numSymLbl->setText(QString::number(++symbolCounter));
-    dfa.addSymbol(ui->symbolLine->text().toStdString());
+
+    nfa.addState(stateNum, start, accepting);
+    nameToState[stateName] = stateNum;
+    stateToName[stateNum] = stateName;
+    ui->FromStateCbox->addItem(QString::fromStdString(stateName));
+    ui->ToStateCbox->addItem(QString::fromStdString(stateName));
+    ui->stateNameLine->setText("");
+    stateNum++;
+    ui->stateCounterLbl->setText(QString::fromStdString(std::to_string(stateNum)));
+}
+
+void FADialog::onSymbEnter() {
+    if (ui->symbolLine->text().toStdString() == "") {
+        ui->symbErrorLbl->setText("Please enter a symbol.");
+        return;
+    }
+
+    ui->symbErrorLbl->setText("");
+    char symbol = (ui->symbolLine->text().toStdString())[0];
+    nfa.addSymbol(symbol);
+    ui->onSymbolCbox->addItem(QChar(symbol));
     ui->symbolLine->setText("");
-
+    symbNum++;
+    ui->numSymLbl->setText(QString::fromStdString(std::to_string(symbNum)));
 }
 
-//int connectedStatesCounter = 0;
+void FADialog::onTransSubmit() {
+    std::string fromState = ui->FromStateCbox->currentText().toStdString();
+    char onSymbol = ui->ToStateCbox->currentText().toStdString()[0];
+    std::string toState = ui->onSymbolCbox->currentText().toStdString();
 
-bool inConnectedStates(std::string stateName) {
-    for (auto& st : connectedStates) {
-        if (stateName == st) {
-            return true;
-        }
-    }
-    return false;
-}
-
-std::string fromStateName;
-std::string toStateName;
-std::string currSymbol;
-int numTransCounter = 0; //to print num of transitions
-int symbolIndex = 0; //use for dfa.getSymbol()
-int stateIndex = 0; //use for connected states
-bool reachedMax = false; // when max transitions, no more should be entered
-
-/**
- * @brief Handles the event when the user enters a transition in the DFA dialog.
- * 
- * If the user has entered every possible transition, a message is displayed and the function returns.
- * Otherwise, the function retrieves the current state, the symbol, and the destination state from the UI.
- * If the destination state is not already connected to the current state, it is added to the list of connected states.
- * Then, the function adds the transition to the graph, the set of transitions, and the DFA.
- * If the current state has reached the maximum number of transitions, the graph is printed to the UI.
- * Finally, the UI is updated with the new current state and symbol.
- */
-void DFADialog::onTransEnter() {
-    if (reachedMax) {
-        ui->transErrorLbl->setText("You have entered every possible transition");
+    if (fromState == "" || toState == "") {
+        ui->transErrorLbl->setStyleSheet("color: red");
+        ui->transErrorLbl->setText("You need to add states!");
         return;
-    }
-    fromStateName = connectedStates[stateIndex];
-    toStateName = ui->gotoLine->text().toStdString();
-    currSymbol = dfa.getSymbol(symbolIndex);
-
-    if (!inConnectedStates(toStateName) && dfa.stateExists(toStateName)) {
-        connectedStates.push_back(dfa.getState(toStateName).name);
-    } else if (!(dfa.stateExists(toStateName))) {
-        ui->transErrorLbl->setText(QString::fromStdString(toStateName) + " does not exist!");
+    } else {
+        ui->transErrorLbl->setText("");
     }
 
-    /*qDebug() << "From state: " << QString::fromStdString(fromStateName) << "\n";
-    qDebug() << "On " << QString::fromStdString(currSymbol) << "\n";
-    qDebug() << "To state: " << QString::fromStdString(toStateName) << "\n";
-    qDebug() << "symbolIndex: " << QString::number(symbolIndex) << "\n";
-    qDebug() << "stateIndex: " << QString::number(stateIndex) << "\n";*/
-
-    //not sure if ill need a graph AND set of transitions, but whatever
-    graph.addVertex(fromStateName);
-    graph.addEdge(fromStateName, toStateName, currSymbol);
-    dfa.addTransition(fromStateName, currSymbol, toStateName);
-    ui->transErrorLbl->setText("");
-
-    ui->numForTransLbl->setText(QString::number(++numTransCounter));
-
-    symbolIndex++;
-
-    //(numSymbols) transitions per state for DFA
-    if (symbolIndex == dfa.getNumSymbols()) {
-        symbolIndex = 0;
-        if (stateIndex == connectedStates.size() - 1) {
-            reachedMax = true;
-            //print graph
-            ui->textEdit->setText(QString::fromStdString(graph.toString()));
-            return;
-        }
-        stateIndex++;
-    }
-
-    ui->currStateLbl->setText(QString::fromStdString(connectedStates[stateIndex]));
-    ui->OnSymbolLbl->setText(QString::fromStdString(dfa.getSymbol(symbolIndex)));
+    nfa.addTransition(nameToState[fromState], onSymbol, nameToState[toState]);
+    transNum++;
+    ui->numTransLbl->setText(QString::fromStdString(std::to_string(transNum)));
 }
 
-
-/**
- * @brief The QPolygonF class defines a polygon as a series of points.
- * 
- * The QPolygonF class provides a vector of QPointF points, which can be used to define a polygon.
- * 
- * @see QPointF
- */
-QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt, int quadrant) {
+QPolygonF createArrowhead1(const QPointF& endPt, const QPointF& startPt, int quadrant) {
     QPolygonF arrowHead;
 
     QPointF arrowP1;
@@ -278,27 +180,14 @@ QPolygonF createArrowhead(const QPointF& endPt, const QPointF& startPt, int quad
     return arrowHead;
 }
 
-/**
- * @brief Displays the DFA graph in the QGraphicsScene.
- * 
- * If the build is not finished, an error label is displayed.
- * For each state in connected states, add line and arrow, saving location of each state that is currently part of the graph.
- * For every transition coming out of a state, alter angle of line by a factor determined by the numSymbols in input alphabet.
- * The position of the states will differ depending on how many states there are.
- * i.e if there are 4 states it would be a diamond, if there are 5, a pentagram.
- * 
- * @return void
- */
-//eventually i need to make this function accessible from nfafialogue an pda instead of copying it
-void DFADialog::displayGraph(Graph* graph) {
-    //if build not finished, error label
-    QGraphicsScene *scene = ui->machineView->scene();
+void FADialog::displayGraph() {
+     QGraphicsScene *scene = ui->machineView->scene();
     if (!scene) {
         scene = new QGraphicsScene(this);
         ui->machineView->setScene(scene);
     }
 
-    std::unordered_map<std::string, QPointF> stateLocations;
+    std::unordered_map<int, QPointF> stateLocations;
     QPointF From(0, 0);
     QPointF control(0, 0);
     QPointF To(0, 0);
@@ -307,7 +196,6 @@ void DFADialog::displayGraph(Graph* graph) {
     QPointF ellipseSize(25, 25);
     bool startAdded = false;
 
-    // Create a QPainterPath and add elements to it
     QPainterPath path;
     QPainter painter(this);
     EllipseTextItem *item;
@@ -319,22 +207,19 @@ void DFADialog::displayGraph(Graph* graph) {
     int stindex = 0;
     int syndex = 0;
 
-    if (connectedStates.empty()) {
-        ui->buildErrLbl->setText("You need to add transitions");
-        return;
-    }
-    ui->buildErrLbl->setText("");
-    //first add states
-    for (auto& st : connectedStates) { 
-        if (connectedStates.size() == 2) {
+    std::set<int> states = nfa.getStates();
+    std::set<int> acceptingStates = nfa.getAcceptStates();
+
+    for (auto& st : states) { 
+        if (states.size() == 2) {
             ellipse = QPoint(ellipse.x() + 100, ellipse.y());
-        } else if (connectedStates.size() == 3) {
+        } else if (states.size() == 3) {
             if (stindex == 1) {
                 ellipse = QPointF(ellipse.x() + 100, ellipse.y() - 100);
             } else {
                 ellipse = QPointF(ellipse.x() + 100, ellipse.y() + 100);
             }
-        } else if (connectedStates.size() == 4) {
+        } else if (states.size() == 4) {
             switch (stindex) {
             case 0:
                 ellipse = QPointF(ellipse.x() + 100, ellipse.y() + 100);
@@ -349,25 +234,25 @@ void DFADialog::displayGraph(Graph* graph) {
                 ellipse = QPointF(ellipse.x() - 100, ellipse.y() + 100);
                 break;
             }
-        } else if (connectedStates.size() >= 5) {
+        } else if (states.size() >= 5) {
             if (stindex == 1) {
                 ellipse = QPointF(ellipse.x() + 100, ellipse.y());
-            } else if ((connectedStates.size() % 2 == 0) && (stindex < connectedStates.size()/2 )) {
+            } else if ((states.size() % 2 == 0) && (stindex < states.size()/2 )) {
                 ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 90);
-            } else if ((connectedStates.size() % 2 == 0) && (stindex == connectedStates.size()/2 )) {
+            } else if ((states.size() % 2 == 0) && (stindex == states.size()/2 )) {
                 ellipse = QPointF(ellipse.x(), ellipse.y() + 100);
-            } else if ((stindex != connectedStates.size() - 1) && (connectedStates.size() % 2 == 0) && (stindex > connectedStates.size()/2 - 1)) {
+            } else if ((stindex != states.size() - 1) && (states.size() % 2 == 0) && (stindex > states.size()/2 - 1)) {
                 ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 90);
-            } else if ((connectedStates.size() % 2 == 1) && (stindex <= connectedStates.size()/2)) {
+            } else if ((states.size() % 2 == 1) && (stindex <= states.size()/2)) {
                 ellipse = QPointF(ellipse.x() + 90, ellipse.y() + 90);
-            } else if ((stindex != connectedStates.size() - 1) && (connectedStates.size() % 2 == 1) && (stindex > connectedStates.size()/2)) {
+            } else if ((stindex != states.size() - 1) && (states.size() % 2 == 1) && (stindex > states.size()/2)) {
                 ellipse = QPointF(ellipse.x() - 90, ellipse.y() + 90);
-            } else if (stindex == connectedStates.size() - 1) {
+            } else if (stindex == states.size() - 1) {
                 ellipse = QPointF(ellipse.x() - 100, ellipse.y());
             }
         }
-        item = new EllipseTextItem(QRectF(ellipse, QSizeF(ellipseSize.x(), ellipseSize.y())), QString::fromStdString(st));
-        if (dfa.getState(st).isAccept) {
+        item = new EllipseTextItem(QRectF(ellipse, QSizeF(ellipseSize.x(), ellipseSize.y())), QString::fromStdString(stateToName[st]));
+        if (acceptingStates.find(st) != acceptingStates.end()) {
             item1 = new QGraphicsEllipseItem(QRectF(QPointF(ellipse.x() + 2, ellipse.y() + 2), QSizeF(ellipseSize.x() - 4, ellipseSize.y() - 4)));
             scene->addItem(item1);
         }
@@ -382,8 +267,9 @@ void DFADialog::displayGraph(Graph* graph) {
 
     //add transitions
     //first add start arrow
-    From = QPointF((stateLocations[startStateName].x() - 15), (stateLocations[startStateName].y() + (ellipseSize.y() / 2)));
-    To = QPointF(stateLocations[startStateName].x(), stateLocations[startStateName].y() + (ellipseSize.y() / 2));
+    int startNm = startState;
+    From = QPointF((stateLocations[startNm].x() - 15), (stateLocations[startNm].y() + (ellipseSize.y() / 2)));
+    To = QPointF(stateLocations[startNm].x(), stateLocations[startNm].y() + (ellipseSize.y() / 2));
 
     path.moveTo(From);
     path.lineTo(To);
@@ -401,16 +287,19 @@ void DFADialog::displayGraph(Graph* graph) {
     QString label;
     QVector<QPolygonF> arrowheads;
     QVector<QPair<QString, QPointF>> textItems;
-    for (auto& st : connectedStates) {
-        for (auto& edge : graph->getEdges(st)) {
+    for (auto& st : states) {
+        std::vector<std::pair<char, int> > transitions = nfa.getTransitions(st);
+        if (transitions.empty()) continue;
+
+        for (auto& transition : transitions) {
             x1 = stateLocations[st].x();
             y1 = stateLocations[st].y();
-            x2 = stateLocations[edge.first].x();
-            y2 = stateLocations[edge.first].y();
-            label = QString::fromStdString(edge.second);
+            x2 = stateLocations[transition.second].x();
+            y2 = stateLocations[transition.second].y();
+            label = QChar(transition.first);
             int xlbl = 5;
             int ylbl = 7;
-            qDebug() << edge.second;
+            qDebug() << transition.first;
             
             //if state a straight right of state b
             if ((x1 == x2) && (y1 == y2)) {
@@ -473,7 +362,7 @@ void DFADialog::displayGraph(Graph* graph) {
             }
             path.moveTo(From);
             path.quadTo(control, To);
-            arrowheads.append(createArrowhead(To, From, q));
+            arrowheads.append(createArrowhead1(To, From, q));
             textItems.append({label, QPointF(From.x() + ((To.x() - From.x()) / 2) - xlbl, (From.y() + ((To.y() - From.y()) / 2) - ylbl))});
             //painter.drawPolygon(arrowHead);
         }
@@ -491,43 +380,13 @@ void DFADialog::displayGraph(Graph* graph) {
         scene->addItem(textItem);
     }
     scene->addPath(path);
-    // Add path to scene
-    //QGraphicsPathItem *pathItem = scene->addPath(path);
-
-    // Set pen and brush
-    /*QPen pen(Qt::black);
-    pen.setWidth(2);
-    pathItem->setPen(pen);
-    arrowItem->setPen(pen);
-    arrowItem->setBrush(Qt::black);
-    */
-
-
-    // Optionally set the scene rect if you want to specify the visible area
-    // scene->setSceneRect(...);
-
-    // Update the view
-    scene->update();
-    ui->machineView->update();
-}
-
-void runMachine(std::string input) {
 
 }
 
-void DFADialog::onBuildEnter() {
-    displayGraph(&graph);
+void FADialog::onBuildEnter() {
+    displayGraph();
 }
 
-void DFADialog::onTestEnter() {
-    std::string input = ui->testLine->text().toStdString();
-    ui->testInputLbl->setAlignment(Qt::AlignRight);
-    ui->testInputLbl->setText(QString::fromStdString(input));
-    if (dfa.accepts(input)) {
-        ui->testResultLbl->setStyleSheet("color: green;");
-        ui->testResultLbl->setText("ACCEPTED");
-    } else {
-        ui->testResultLbl->setStyleSheet("color: red;");
-        ui->testResultLbl->setText("REJECTED");
-    }
+void FADialog::onTestEnter() {
+    //bool accepted = compute(ui->testStringLine->text().toStdString());
 }

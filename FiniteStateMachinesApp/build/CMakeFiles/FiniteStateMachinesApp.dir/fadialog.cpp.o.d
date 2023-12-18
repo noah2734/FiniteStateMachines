@@ -1,7 +1,6 @@
-CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compilation.cpp.o: \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/mocs_compilation.cpp \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_fadialog.cpp \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/../../../fadialog.h \
+CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o: \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.cpp \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QDialog \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -852,10 +851,60 @@ CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compil
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qpen.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPolygonF \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/set \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/../../../fmachine.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qtmochelpers.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_mainwindow.cpp \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/../../../mainwindow.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtabwidget.h
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.h \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/include/ui_fadialog.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/QVariant \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QApplication \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qapplication.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qcoreevent.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qeventloop.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qnativeinterface.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qcoreapplication_platform.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qguiapplication.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qinputmethod.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qlocale.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qguiapplication_platform.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QCheckBox \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qcheckbox.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qabstractbutton.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QComboBox \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qcombobox.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qabstractitemdelegate.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qabstractspinbox.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qvalidator.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qregularexpression.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qslider.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qabstractslider.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qstyle.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtabbar.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qrubberband.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qframe.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QGraphicsView \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qgraphicsview.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qabstractscrollarea.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qlayout.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qlayoutitem.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qpicture.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qiodevice.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qtextdocument.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qurl.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QLineEdit \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qlineedit.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qtextcursor.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qtextformat.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QTextEdit \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtextedit.h \
+  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QWidget

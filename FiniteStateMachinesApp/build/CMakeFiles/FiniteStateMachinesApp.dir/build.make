@@ -111,19 +111,19 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.cpp -o CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.s
 
-CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o: CMakeFiles/FiniteStateMachinesApp.dir/flags.make
-CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp
-CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o: CMakeFiles/FiniteStateMachinesApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o -MF CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o.d -o CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp
+CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o: CMakeFiles/FiniteStateMachinesApp.dir/flags.make
+CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.cpp
+CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o: CMakeFiles/FiniteStateMachinesApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o -MF CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o.d -o CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.cpp
 
-CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp > CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.i
+CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.cpp > CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.i
 
-CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.cpp -o CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.s
+CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.cpp -o CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.s
 
 CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o: CMakeFiles/FiniteStateMachinesApp.dir/flags.make
 CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp
@@ -139,28 +139,13 @@ CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp -o CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.s
 
-CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o: CMakeFiles/FiniteStateMachinesApp.dir/flags.make
-CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp
-CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o: CMakeFiles/FiniteStateMachinesApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o -MF CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o.d -o CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o -c /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp
-
-CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp > CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.i
-
-CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.cpp -o CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.s
-
 # Object files for target FiniteStateMachinesApp
 FiniteStateMachinesApp_OBJECTS = \
 "CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o" \
 "CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o" \
-"CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o" \
-"CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o" \
-"CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o"
+"CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o" \
+"CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o"
 
 # External object files for target FiniteStateMachinesApp
 FiniteStateMachinesApp_EXTERNAL_OBJECTS =
@@ -168,15 +153,14 @@ FiniteStateMachinesApp_EXTERNAL_OBJECTS =
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/FiniteStateMachinesApp_autogen/mocs_compilation.cpp.o
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o
-FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/dfadialog.cpp.o
+FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o
-FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/nfadialog.cpp.o
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/build.make
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/QtWidgets
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/QtGui
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/QtCore
 FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp: CMakeFiles/FiniteStateMachinesApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable FiniteStateMachinesApp.app/Contents/MacOS/FiniteStateMachinesApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FiniteStateMachinesApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,40 +1,53 @@
-#ifndef DFADIALOG_H
-#define DFADIALOG_H
+#ifndef FADIALOG_H
+#define FADIALOG_H
 
 #include <QDialog>
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QPolygonF>
-#include "machine.h"
+#include <set>
+#include <unordered_map>
+#include "fmachine.h"
 
 namespace Ui {
-class DFADialog;
+class FADialog;
 }
 
-class DFADialog : public QDialog
+class FADialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit DFADialog(QWidget *parent = nullptr);
-    ~DFADialog();
-
-    void displayGraph(Graph *graph);
-
+    explicit FADialog(QWidget *parent = nullptr);
+    ~FADialog();
 private:
-    Ui::DFADialog *ui;
+    Ui::FADialog *ui;
+
+    bool start = false;
+    bool accepting = false;
+    bool startExists = false;
+    std::string stateName;
+    std::unordered_map<std::string, int> nameToState;
+    std::unordered_map<int, std::string> stateToName;
+    NFA nfa;
+    int stateNum = 0;
+    int startState = -1;
+    int symbNum = 0;
+    int transNum = 0;
 private slots:
-    //for states
+
     void onStateEnter();
 
     void updateStart(int);
 
     void updateAccept(int);
-    //for symbols
+
     void onSymbEnter();
-    //for transitions
-    void onTransEnter();
-    //for building/testing
+
+    void onTransSubmit();
+
+    void displayGraph();
+
     void onBuildEnter();
 
     void onTestEnter();
@@ -64,4 +77,4 @@ private:
     QString m_text;
 };
 
-#endif // DFADIALOG_H
+#endif // FADIALOG_H

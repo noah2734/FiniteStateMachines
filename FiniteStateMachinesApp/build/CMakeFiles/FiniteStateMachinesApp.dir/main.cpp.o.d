@@ -843,7 +843,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o: \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qcursor.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qbitmap.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtabwidget.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/dfadialog.h \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QDialog \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
@@ -854,8 +854,8 @@ CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o: \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qtextoption.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/qpen.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Headers/QPolygonF \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/nfadialog.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/set \
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/QApplication \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qapplication.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h \

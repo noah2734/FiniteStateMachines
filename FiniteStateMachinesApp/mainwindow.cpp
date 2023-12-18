@@ -62,15 +62,15 @@ void MainWindow::onRButtonToggled(bool checked) {
 }
 
 void MainWindow::onBuildMachineButton() {
-    if (mode == DFA) {
+    /*if (mode == DFA) {
         qDebug() << "Open DFA Window";
         DFADialog dialog(this);
         dialog.exec();
 
-    }
+    }*/
     if (mode == NFA) {
         qDebug() << "Open NFA Window";
-        NFADialog dialog(this);
+        FADialog dialog(this);
         dialog.exec();
     }
 }

@@ -124,7 +124,7 @@ void NFA::addSymbol(const std::string& sym) {
 //First check if transition exists, then only add to transitions if it doesnt already exist
 //Key is pair: <From state, Label> and value associated is "To state"
 void NFA::addTransition(const std::string& from, const std::string& on, const std::string& to) {
-    std::pair<std::string, std::pair<std::string, int>> key;
+   /* std::pair<std::string, std::pair<std::string, int>> key;
     std::pair<std::string, int> onValue;
     onValue.first = on;
     onValue.second = 0;
@@ -138,7 +138,7 @@ void NFA::addTransition(const std::string& from, const std::string& on, const st
             key.second.second++;
         }
     }
-    transitions[key] = Transition(from, on, to);
+    transitions[key] = Transition(from, on, to);*/
 }
 
 bool NFA::accepts(std::string input) {

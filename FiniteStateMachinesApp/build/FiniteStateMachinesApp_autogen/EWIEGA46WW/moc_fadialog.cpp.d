@@ -1,4 +1,4 @@
-/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_mainwindow.cpp: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/mainwindow.h \
+/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_fadialog.cpp: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.h \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/build/FiniteStateMachinesApp_autogen/moc_predefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/AvailabilityInternal.h \
@@ -625,7 +625,6 @@
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/qos.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdarg.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fadialog.h \
   /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtCore.framework/Versions/A/Headers/q20memory.h \
@@ -772,12 +771,9 @@
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QDialog \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsItem \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsitem.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
-  /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsglobal.h \
