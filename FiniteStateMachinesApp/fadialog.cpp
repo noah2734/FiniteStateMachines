@@ -42,6 +42,11 @@ FADialog::FADialog(QWidget *parent) :
     ui->onSymbolCbox->addItem(QString::fromUtf8(u8"\u03B5")); // epsilon symbol
 }
 
+FADialog::~FADialog()
+{
+    delete ui;
+}
+
 void FADialog::updateStart(int state) {
     start = (state == Qt::Checked);
 }

@@ -1772,7 +1772,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/fadialog.cpp.o: /Users/noahmcclelland/Proj
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
   /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qwidget.h
 
-CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp \
+CMakeFiles/FiniteStateMachinesApp.dir/fmachine.cpp.o: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/AvailabilityInternal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/AvailabilityVersions.h \
@@ -2169,6 +2169,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o: /Users/noahmcclelland/Proje
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__thread/poll_with_backoff.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__thread/timed_backoff_policy.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__threading_support \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__tree \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__tuple \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__type_traits/add_const.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__type_traits/add_cv.h \
@@ -2333,12 +2334,12 @@ CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o: /Users/noahmcclelland/Proje
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/iterator \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/limits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/limits.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/memory \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/new \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/ratio \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/set \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/stddef.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/stdexcept \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/stdint.h \
@@ -2450,7 +2451,7 @@ CMakeFiles/FiniteStateMachinesApp.dir/machine.cpp.o: /Users/noahmcclelland/Proje
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdint.h \
-  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.h
+  /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.h
 
 CMakeFiles/FiniteStateMachinesApp.dir/main.cpp.o: /Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/Availability.h \
@@ -4222,10 +4223,6 @@ CMakeFiles/FiniteStateMachinesApp.dir/mainwindow.cpp.o: /Users/noahmcclelland/Pr
 
 FiniteStateMachinesApp_autogen/include/ui_mainwindow.h:
 
-/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.h:
-
-/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp:
-
 /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qtabbar.h:
 
 /Users/noahmcclelland/Qt/6.6.0/macos/lib/QtWidgets.framework/Headers/qstyleoption.h:
@@ -5281,6 +5278,8 @@ FiniteStateMachinesApp_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/arm/limits.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__concepts/totally_ordered.h:
+
+/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__concepts/swappable.h:
 

@@ -462,7 +462,7 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "machine.h",
+			"path" : "fmachine.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -484,7 +484,7 @@
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "machine.cpp",
+			"path" : "fmachine.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <vector>
 #include <utility>
+#include <string>
 
 void NFA::addState(int state, bool isStart, bool isAccept) {
     if (isStart) {

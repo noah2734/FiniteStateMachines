@@ -292,9 +292,9 @@
 			null
 		],
 		[
-			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.h",
+			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.h",
 			"MU",
-			"EWIEGA46WW/moc_machine.cpp",
+			"EWIEGA46WW/moc_fmachine.cpp",
 			null
 		],
 		[
@@ -368,7 +368,7 @@
 			null
 		],
 		[
-			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/machine.cpp",
+			"/Users/noahmcclelland/Projects/GitHub/FiniteStateMachines/FiniteStateMachinesApp/fmachine.cpp",
 			"MU",
 			null
 		],
