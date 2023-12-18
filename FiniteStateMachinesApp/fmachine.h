@@ -35,6 +35,8 @@ public:
 
     std::vector<std::pair<char, int> > getTransitions(int state) { return transitions[state]; }
 
+    std::unordered_map<int, std::vector<std::pair<char, int> > > getTransitions() { return transitions; }
+
     bool accepts(std::string input);
 
     //void setStartState(int state) { startState = state; }

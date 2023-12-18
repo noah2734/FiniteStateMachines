@@ -99,20 +99,22 @@ void FADialog::onSymbEnter() {
 
 void FADialog::onTransSubmit() {
     std::string fromState = ui->FromStateCbox->currentText().toStdString();
-    char onSymbol = ui->ToStateCbox->currentText().toStdString()[0];
-    std::string toState = ui->onSymbolCbox->currentText().toStdString();
+    char onSymbol = ui->onSymbolCbox->currentText().toStdString()[0];
+    std::string toState = ui->ToStateCbox->currentText().toStdString();
 
     if (fromState == "" || toState == "") {
         ui->transErrorLbl->setStyleSheet("color: red");
         ui->transErrorLbl->setText("You need to add states!");
         return;
     } else {
-        ui->transErrorLbl->setText("");
+        ui->transErrorLbl->setStyleSheet("color: green");
+        ui->transErrorLbl->setText("Submitted successfully!");
     }
 
     nfa.addTransition(nameToState[fromState], onSymbol, nameToState[toState]);
     transNum++;
     ui->numTransLbl->setText(QString::fromStdString(std::to_string(transNum)));
+    printTransitions();
 }
 
 QPolygonF createArrowhead1(const QPointF& endPt, const QPointF& startPt, int quadrant) {
@@ -392,6 +394,42 @@ void FADialog::onBuildEnter() {
     displayGraph();
 }
 
+void FADialog::printTransitions() {
+    std::string toPrint = "";
+    for (auto &pair : nfa.getTransitions()) {
+        for (auto &transition : pair.second) {
+            toPrint += stateToName[pair.first] + " -> " + transition.first + " -> " + stateToName[transition.second] + "\n";
+        }
+    }
+    ui->textEdit->setText(QString::fromStdString(toPrint));
+
+}
+
+void FADialog::printHistory() {
+    std::string toPrint = "";
+    for (auto &pair : inputHistory) {
+        if (pair.second) {
+            toPrint += pair.first + "     \tACCEPTED\n";
+        } else {
+            toPrint += pair.first + "     \tREJECTED\n";
+        }
+    }
+    ui->textEdit->setText(QString::fromStdString(toPrint));
+}
+
 void FADialog::onTestEnter() {
-    //bool accepted = compute(ui->testStringLine->text().toStdString());
+    std::string input = ui->testLine->text().toStdString();
+    bool accepted = nfa.accepts(input);
+    std::pair<std::string, bool> inputPair;
+    inputPair.first = input;
+    inputPair.second = accepted;
+    inputHistory.push_back(inputPair);
+    printHistory();
+    if (accepted) {
+        ui->testInputLbl->setStyleSheet("color: green");
+        ui->testInputLbl->setText("ACCEPTED");
+    } else {
+        ui->testInputLbl->setStyleSheet("color: red");
+        ui->testInputLbl->setText("REJECTED");
+    }
 }

@@ -20,6 +20,10 @@ class FADialog : public QDialog
 public:
     explicit FADialog(QWidget *parent = nullptr);
     ~FADialog();
+
+    void printTransitions();
+
+    void printHistory();
 private:
     Ui::FADialog *ui;
 
@@ -29,6 +33,7 @@ private:
     std::string stateName;
     std::unordered_map<std::string, int> nameToState;
     std::unordered_map<int, std::string> stateToName;
+    std::vector<std::pair<std::string, bool> > inputHistory;
     NFA nfa;
     int stateNum = 0;
     int startState = -1;
