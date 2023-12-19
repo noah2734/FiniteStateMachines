@@ -5,6 +5,7 @@
 #include <vector>
 #include <utility>
 #include <string>
+#include <iostream>
 
 void NFA::addState(int state, bool isStart, bool isAccept) {
     if (isStart) {
@@ -35,7 +36,10 @@ bool NFA::accepts(std::string input) {
         std::set<int> nextStates;
         for (int state : currentStates) {
             for (std::pair<char, int> transition : transitions[state]) {
-                if (transition.first == input[i]) {
+                if (static_cast<int>(transition.first) == -50) {
+                    nextStates.insert(transition.second);
+                }
+                else if (transition.first == input[i]) {
                     nextStates.insert(transition.second);
                 }
             }

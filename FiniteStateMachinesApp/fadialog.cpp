@@ -370,6 +370,10 @@ void FADialog::displayGraph() {
             path.moveTo(From);
             path.quadTo(control, To);
             arrowheads.append(createArrowhead1(To, From, q));
+            //qDebug() << static_cast<int>((label.toStdString())[0]);
+            if (static_cast<int>((label.toStdString())[0]) == -61) {
+                label = QString::fromUtf8(u8"\u03B5");
+            }
             textItems.append({label, QPointF(From.x() + ((To.x() - From.x()) / 2) - xlbl, (From.y() + ((To.y() - From.y()) / 2) - ylbl))});
             //painter.drawPolygon(arrowHead);
         }
@@ -398,7 +402,11 @@ void FADialog::printTransitions() {
     std::string toPrint = "";
     for (auto &pair : nfa.getTransitions()) {
         for (auto &transition : pair.second) {
-            toPrint += stateToName[pair.first] + " -> " + transition.first + " -> " + stateToName[transition.second] + "\n";
+            if (static_cast<int>(transition.first) == -50) {
+                toPrint += stateToName[pair.first] + " -> " + u8"\u03B5" + " -> " + stateToName[transition.second] + "\n";
+            } else {
+                toPrint += stateToName[pair.first] + " -> " + (transition.first) + " -> " + stateToName[transition.second] + "\n";
+            }
         }
     }
     ui->textEdit->setText(QString::fromStdString(toPrint));
